@@ -7,11 +7,12 @@ block styles
 block script
     script(type="module", src="/socket.io/socket.io.js")
     script(type="module", src=h.asset("chess/resize.js")) 
+    script(type="module", src=h.asset("services/chess/board.js")) 
     script(type="module", src=h.asset("services/socket.io/game.js")) 
 
 block body
+    input(type="hidden", name="gameId", value=gameId)
     cg-container
-        input(type="hidden", name="data" data-game=gameData)
         cg-board 
         
 

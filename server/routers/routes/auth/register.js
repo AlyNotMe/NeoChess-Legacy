@@ -39,11 +39,8 @@ const post = route.route("/:language?/register", async (req, res) => {
    *************************************************************/
 
   const { sequelize } = require("../../../service/database/models/");
-  const User = sequelize.models;
-  console.log(User);
-  return;
+  const User = sequelize.models.user;
   const { username, password } = req.body;
-  console.log(req.body);
   const langName = req.params.language || config.default_language;
 
   /*************************************************************
@@ -64,7 +61,8 @@ const post = route.route("/:language?/register", async (req, res) => {
     min: 6,
     max: 40,
   }).validate(req.session, langName);
-  if (errorUsername || errorPassword) {
+  const error = errorUsername || errorPassword;
+  if (error) {
     res.redirect(`/${langName}/register`);
     return;
   }
@@ -85,8 +83,8 @@ const post = route.route("/:language?/register", async (req, res) => {
     return;
   }
 
-  const error = "alreadyExist";
-  const msgError = require("../../../langue/errors.js")[langName].ORM[error];
+  const code = "alreadyExist";
+  const msgError = require("../../../langue/errors.js")[langName].ORM[code];
   req.session.errors.username = [msgError];
   console.log(req.session);
   res.redirect(`/${langName}/register`);

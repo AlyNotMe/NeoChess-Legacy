@@ -1,16 +1,17 @@
 /**
  * @typedef options
- * @property {boolean} isAlphanumeric
- * @property {number} min
- * @property {number} max
+ * @property {boolean} isAlphanumeric - Indique si le champ doit être alphanumérique.
+ * @property {number} min - La longueur minimale du champ.
+ * @property {number} max - La longueur maximale du champ.
  */
 
 class Validator {
   #errors;
   /**
-   *
-   * @param {string} field
-   * @param {options} options
+   * Initialise un nouveau validateur.
+   * @param {string} field - Le champ à valider.
+   * @param {string} type - Le type de validation.
+   * @param {options} options - Les options de validation.
    */
   constructor(field, type, options) {
     this.field = field;
@@ -19,6 +20,12 @@ class Validator {
     this.#errors = [];
   }
 
+  /**
+   * Valide le champ en fonction des options spécifiées.
+   * @param {object} sessionErr - L'objet contenant les erreurs de la session.
+   * @param {string} langName - Le nom de la langue pour les messages d'erreur.
+   * @returns {boolean} - Retourne vrai si des erreurs sont trouvées, sinon faux.
+   */
   validate(sessionErr, langName) {
     for (const property in this.options) {
       const value = this.options[property];
@@ -46,16 +53,30 @@ class Validate {
     this.field = field;
   }
 
+  /**
+   * Vérifie si le champ est alphanumérique.
+   * @returns {boolean} - Retourne vrai si le champ est alphanumérique, sinon faux.
+   */
   isAlphanumeric() {
     const valid = this.field.match(/[A-Za-z0-9]+|_+|-+/gm);
     return valid?.join("") === this.field;
   }
 
+  /**
+   * Vérifie si la longueur du champ est supérieure ou égale à la valeur spécifiée.
+   * @param {number} value - La valeur minimale attendue.
+   * @returns {boolean} - Retourne vrai si la longueur est suffisante, sinon faux.
+   */
   min(value) {
     const valid = this.field.length >= value;
     return valid;
   }
 
+  /**
+   * Vérifie si la longueur du champ est inférieure ou égale à la valeur spécifiée.
+   * @param {number} value - La valeur maximale attendue.
+   * @returns {boolean} - Retourne vrai si la longueur est acceptable, sinon faux.
+   */
   max(value) {
     const valid = this.field.length <= value;
     return valid;

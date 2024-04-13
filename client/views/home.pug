@@ -2,24 +2,27 @@ extends ./layouts/main.pug
 
 block styles
     link(rel="stylesheet", href=h.asset("home.css"))
+    link(href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css", rel="stylesheet")
+block script
+    script(type="module", src="/socket.io/socket.io.js")
+    script(type="module", src=h.asset("services/socket.io/home.js")) 
 
 block body
-    header 
-        nav.secondary
-            a(href="/").logo.nav-el
-                img(src=h.asset("icons/pawn_white_with_heart.webp"), alt="logo")
-                h1.h-nav NeoChess
-            ul 
-                li 
-                    a(href="/matchmaking")
-                        img(src=h.asset("icons/queen_white.webp"), alt="queen_white")
+    header
+        nav.secondary.flex.items-center.justify-between.py-4.px-6.bg-gray-800
+            a(href="/").logo.nav-el.flex.items-center
+                img(src=h.asset("icons/pawn_white_with_heart.webp"), alt="logo", class="w-14 h-14 mr-2")
+                h1.h-nav.text-white.text-2xl NeoChess
+            ul.flex.items-center
+                li.mx-4
+                    button(type="button" id="play" class="btn flex items-center space-x-2 text-white")
+                        img(src=h.asset("icons/queen_white.webp"), alt="queen_white", class="w-20 h-20")
                         p.text-nav #{translate.play} 
-                li 
-                    a(href="")
-                        img(src=h.asset("icons/social.webp"), alt="social")
+                li.mx-4
+                    button(type="button" class="btn flex items-center space-x-2 text-white")
+                        img(src=h.asset("icons/social.webp"), alt="social", class="w-20 h-20")
                         p.text-nav #{translate.social}
-                li
-                    a(href="")
-                        img(src=h.asset("icons/lang.webp"), alt="lang")
+                li.mx-4
+                    button(type="button" class="btn flex items-center space-x-2 text-white")
+                        img(src=h.asset("icons/lang.webp"), alt="lang", class="w-20 h-20")  
                         p.text-nav #{translate.langue}
-

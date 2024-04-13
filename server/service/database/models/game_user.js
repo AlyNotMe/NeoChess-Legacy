@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       last_move_timestamp: {
         allowNull: false,
         type: DataTypes.DATE, // Timestamp du dernier coup du joueur
-        defaultValue: DataTypes.literal("CURRENT_TIMESTAMP"),
+        defaultValue: DataTypes.NOWr,
       },
       time_remaining: {
         allowNull: false,

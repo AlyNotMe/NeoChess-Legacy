@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{D68BFA5E-D227-4CC6-8BF1-65BD95AE1A89}" Label="" LastModificationDate="1712971610" Name="NeoChess" Objects="78" Symbols="27" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" signature="CDM_DATA_MODEL_XML" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{D68BFA5E-D227-4CC6-8BF1-65BD95AE1A89}" Label="" LastModificationDate="1713015583" Name="NeoChess" Objects="79" Symbols="27" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" signature="CDM_DATA_MODEL_XML" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -12,7 +12,7 @@
 <a:Code>NEOCHESS</a:Code>
 <a:CreationDate>1712161364</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
-<a:ModificationDate>1712970447</a:ModificationDate>
+<a:ModificationDate>1713015583</a:ModificationDate>
 <a:Modifier>enzoo</a:Modifier>
 <a:PackageOptionsText>[FolderOptions]
 
@@ -811,9 +811,21 @@ PreserveMode=No</a:ModelOptionsText>
 <a:TargetID>28A3A514-7599-4CD5-A23E-2356D8E6941E</a:TargetID>
 <a:TargetClassID>5F45F978-C4F3-4E35-A3FC-AF3318663A0F</a:TargetClassID>
 </o:Shortcut>
+<o:Shortcut Id="o5">
+<a:ObjectID>456B2AE1-0FD0-41F3-AE72-6011705C8B59</a:ObjectID>
+<a:Name>NeoChess</a:Name>
+<a:Code>NEOCHESS</a:Code>
+<a:CreationDate>1713015517</a:CreationDate>
+<a:Creator>enzoo</a:Creator>
+<a:ModificationDate>1713015517</a:ModificationDate>
+<a:Modifier>enzoo</a:Modifier>
+<a:TargetStereotype/>
+<a:TargetID>EF3F8FA3-757A-4FE7-BC6B-28F8F7D761CF</a:TargetID>
+<a:TargetClassID>5F45F978-C4F3-4E35-A3FC-AF3318663A0F</a:TargetClassID>
+</o:Shortcut>
 </c:GeneratedModels>
 <c:ConceptualDiagrams>
-<o:ConceptualDiagram Id="o5">
+<o:ConceptualDiagram Id="o6">
 <a:ObjectID>C6E1DAA0-E592-4B34-A6E3-6CBDB845C035</a:ObjectID>
 <a:Name>Diagramme_1</a:Name>
 <a:Code>DIAGRAMME_1</a:Code>
@@ -1186,7 +1198,7 @@ Shadow=0</a:DisplayPreferences>
 <a:PageOrientation>1</a:PageOrientation>
 <a:PaperSource>15</a:PaperSource>
 <c:Symbols>
-<o:AssociationLinkSymbol Id="o6">
+<o:AssociationLinkSymbol Id="o7">
 <a:CreationDate>1712162226</a:CreationDate>
 <a:ModificationDate>1712970426</a:ModificationDate>
 <a:Rect>((-63565,23168), (-54320,27469))</a:Rect>
@@ -1198,19 +1210,19 @@ Shadow=0</a:DisplayPreferences>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o7"/>
+<o:EntitySymbol Ref="o8"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o8"/>
+<o:AssociationSymbol Ref="o9"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o9"/>
+<o:AssociationLink Ref="o10"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o10">
+<o:AssociationLinkSymbol Id="o11">
 <a:CreationDate>1712162226</a:CreationDate>
 <a:ModificationDate>1712162583</a:ModificationDate>
-<a:Rect>((-54320,24069), (-44767,29776))</a:Rect>
+<a:Rect>((-54320,24069), (-44805,29776))</a:Rect>
 <a:ListOfPoints>((-46567,29776),(-46567,24069),(-54320,24069))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1219,16 +1231,16 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o11"/>
+<o:EntitySymbol Ref="o12"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o8"/>
+<o:AssociationSymbol Ref="o9"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o12"/>
+<o:AssociationLink Ref="o13"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o13">
+<o:AssociationLinkSymbol Id="o14">
 <a:CreationDate>1712162692</a:CreationDate>
 <a:ModificationDate>1712164745</a:ModificationDate>
 <a:Rect>((-67270,40666), (-50010,49083))</a:Rect>
@@ -1240,16 +1252,16 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o14"/>
+<o:EntitySymbol Ref="o15"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o15"/>
+<o:AssociationSymbol Ref="o16"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o16"/>
+<o:AssociationLink Ref="o17"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o17">
+<o:AssociationLinkSymbol Id="o18">
 <a:CreationDate>1712162692</a:CreationDate>
 <a:ModificationDate>1712164745</a:ModificationDate>
 <a:Rect>((-71689,27406), (-67039,40666))</a:Rect>
@@ -1261,16 +1273,16 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o7"/>
+<o:EntitySymbol Ref="o8"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o15"/>
+<o:AssociationSymbol Ref="o16"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o18"/>
+<o:AssociationLink Ref="o19"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o19">
+<o:AssociationLinkSymbol Id="o20">
 <a:CreationDate>1712164950</a:CreationDate>
 <a:ModificationDate>1712164950</a:ModificationDate>
 <a:Rect>((-40877,42820), (-28883,49918))</a:Rect>
@@ -1282,16 +1294,16 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o14"/>
+<o:EntitySymbol Ref="o15"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o20"/>
+<o:AssociationSymbol Ref="o21"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o21"/>
+<o:AssociationLink Ref="o22"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o22">
+<o:AssociationLinkSymbol Id="o23">
 <a:CreationDate>1712164950</a:CreationDate>
 <a:ModificationDate>1712165184</a:ModificationDate>
 <a:Rect>((-28883,31632), (-18748,42820))</a:Rect>
@@ -1303,16 +1315,16 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o23"/>
+<o:EntitySymbol Ref="o24"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o20"/>
+<o:AssociationSymbol Ref="o21"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o24"/>
+<o:AssociationLink Ref="o25"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o25">
+<o:AssociationLinkSymbol Id="o26">
 <a:CreationDate>1712164952</a:CreationDate>
 <a:ModificationDate>1712165184</a:ModificationDate>
 <a:Rect>((-36228,31031), (-20236,36229))</a:Rect>
@@ -1324,16 +1336,16 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o23"/>
+<o:EntitySymbol Ref="o24"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o26"/>
+<o:AssociationSymbol Ref="o27"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o27"/>
+<o:AssociationLink Ref="o28"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o28">
+<o:AssociationLinkSymbol Id="o29">
 <a:CreationDate>1712164952</a:CreationDate>
 <a:ModificationDate>1712164955</a:ModificationDate>
 <a:Rect>((-68400,28598), (-36228,36684))</a:Rect>
@@ -1345,19 +1357,19 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o7"/>
+<o:EntitySymbol Ref="o8"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o26"/>
+<o:AssociationSymbol Ref="o27"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o29"/>
+<o:AssociationLink Ref="o30"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o30">
+<o:AssociationLinkSymbol Id="o31">
 <a:CreationDate>1712165429</a:CreationDate>
 <a:ModificationDate>1712165741</a:ModificationDate>
-<a:Rect>((-91209,20002), (-89352,30371))</a:Rect>
+<a:Rect>((-91247,20002), (-89352,30371))</a:Rect>
 <a:ListOfPoints>((-91209,30371),(-91209,28199),(-89352,28199),(-89352,20002))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1366,16 +1378,16 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o31"/>
+<o:EntitySymbol Ref="o32"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o32"/>
+<o:AssociationSymbol Ref="o33"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o33"/>
+<o:AssociationLink Ref="o34"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o34">
+<o:AssociationLinkSymbol Id="o35">
 <a:CreationDate>1712165429</a:CreationDate>
 <a:ModificationDate>1712165740</a:ModificationDate>
 <a:Rect>((-89352,20002), (-68005,25135))</a:Rect>
@@ -1387,16 +1399,16 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o7"/>
+<o:EntitySymbol Ref="o8"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o32"/>
+<o:AssociationSymbol Ref="o33"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o35"/>
+<o:AssociationLink Ref="o36"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o36">
+<o:AssociationLinkSymbol Id="o37">
 <a:CreationDate>1712165615</a:CreationDate>
 <a:ModificationDate>1712165624</a:ModificationDate>
 <a:Rect>((-90033,50879), (-67539,57737))</a:Rect>
@@ -1408,16 +1420,16 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o37"/>
+<o:EntitySymbol Ref="o38"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o38"/>
+<o:AssociationSymbol Ref="o39"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o39"/>
+<o:AssociationLink Ref="o40"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o40">
+<o:AssociationLinkSymbol Id="o41">
 <a:CreationDate>1712165615</a:CreationDate>
 <a:ModificationDate>1712165624</a:ModificationDate>
 <a:Rect>((-67539,51220), (-46028,58137))</a:Rect>
@@ -1429,16 +1441,16 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o14"/>
+<o:EntitySymbol Ref="o15"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o38"/>
+<o:AssociationSymbol Ref="o39"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o41"/>
+<o:AssociationLink Ref="o42"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o42">
+<o:AssociationLinkSymbol Id="o43">
 <a:CreationDate>1712165685</a:CreationDate>
 <a:ModificationDate>1712165741</a:ModificationDate>
 <a:Rect>((-91465,32845), (-89665,41505))</a:Rect>
@@ -1450,16 +1462,16 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o31"/>
+<o:EntitySymbol Ref="o32"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o43"/>
+<o:AssociationSymbol Ref="o44"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o44"/>
+<o:AssociationLink Ref="o45"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:AssociationLinkSymbol Id="o45">
+<o:AssociationLinkSymbol Id="o46">
 <a:CreationDate>1712165685</a:CreationDate>
 <a:ModificationDate>1712165741</a:ModificationDate>
 <a:Rect>((-91266,41505), (-87728,48869))</a:Rect>
@@ -1471,16 +1483,16 @@ CARD 0 Arial,8,N</a:FontList>
 <a:FontList>ROLE 0 Arial,8,N
 CARD 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:EntitySymbol Ref="o37"/>
+<o:EntitySymbol Ref="o38"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:AssociationSymbol Ref="o43"/>
+<o:AssociationSymbol Ref="o44"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:AssociationLink Ref="o46"/>
+<o:AssociationLink Ref="o47"/>
 </c:Object>
 </o:AssociationLinkSymbol>
-<o:EntitySymbol Id="o7">
+<o:EntitySymbol Id="o8">
 <a:CreationDate>1712161656</a:CreationDate>
 <a:ModificationDate>1712970426</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
@@ -1498,10 +1510,10 @@ Identifiers 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Entity Ref="o47"/>
+<o:Entity Ref="o48"/>
 </c:Object>
 </o:EntitySymbol>
-<o:EntitySymbol Id="o11">
+<o:EntitySymbol Id="o12">
 <a:CreationDate>1712162209</a:CreationDate>
 <a:ModificationDate>1712970426</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
@@ -1519,10 +1531,10 @@ Identifiers 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Entity Ref="o48"/>
+<o:Entity Ref="o49"/>
 </c:Object>
 </o:EntitySymbol>
-<o:AssociationSymbol Id="o8">
+<o:AssociationSymbol Id="o9">
 <a:CreationDate>1712162226</a:CreationDate>
 <a:ModificationDate>1712162571</a:ModificationDate>
 <a:Rect>((-56721,21858), (-51920,25377))</a:Rect>
@@ -1537,10 +1549,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Association Ref="o49"/>
+<o:Association Ref="o50"/>
 </c:Object>
 </o:AssociationSymbol>
-<o:EntitySymbol Id="o14">
+<o:EntitySymbol Id="o15">
 <a:CreationDate>1712162608</a:CreationDate>
 <a:ModificationDate>1712970426</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
@@ -1558,10 +1570,10 @@ Identifiers 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Entity Ref="o50"/>
+<o:Entity Ref="o51"/>
 </c:Object>
 </o:EntitySymbol>
-<o:AssociationSymbol Id="o15">
+<o:AssociationSymbol Id="o16">
 <a:CreationDate>1712162692</a:CreationDate>
 <a:ModificationDate>1712164745</a:ModificationDate>
 <a:Rect>((-76261,37058), (-58289,44274))</a:Rect>
@@ -1578,10 +1590,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:ManuallyResized>1</a:ManuallyResized>
 <c:Object>
-<o:Association Ref="o51"/>
+<o:Association Ref="o52"/>
 </c:Object>
 </o:AssociationSymbol>
-<o:EntitySymbol Id="o23">
+<o:EntitySymbol Id="o24">
 <a:CreationDate>1712163091</a:CreationDate>
 <a:ModificationDate>1712165184</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
@@ -1601,10 +1613,10 @@ Identifiers 0 Arial,8,N</a:FontList>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:ManuallyResized>1</a:ManuallyResized>
 <c:Object>
-<o:Entity Ref="o52"/>
+<o:Entity Ref="o53"/>
 </c:Object>
 </o:EntitySymbol>
-<o:AssociationSymbol Id="o20">
+<o:AssociationSymbol Id="o21">
 <a:CreationDate>1712164950</a:CreationDate>
 <a:ModificationDate>1712164950</a:ModificationDate>
 <a:Rect>((-32276,41060), (-25493,44579))</a:Rect>
@@ -1619,10 +1631,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Association Ref="o53"/>
+<o:Association Ref="o54"/>
 </c:Object>
 </o:AssociationSymbol>
-<o:AssociationSymbol Id="o26">
+<o:AssociationSymbol Id="o27">
 <a:CreationDate>1712164952</a:CreationDate>
 <a:ModificationDate>1712164955</a:ModificationDate>
 <a:Rect>((-39171,34924), (-33288,38443))</a:Rect>
@@ -1637,10 +1649,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Association Ref="o54"/>
+<o:Association Ref="o55"/>
 </c:Object>
 </o:AssociationSymbol>
-<o:EntitySymbol Id="o31">
+<o:EntitySymbol Id="o32">
 <a:CreationDate>1712165264</a:CreationDate>
 <a:ModificationDate>1712970426</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
@@ -1658,10 +1670,10 @@ Identifiers 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Entity Ref="o55"/>
+<o:Entity Ref="o56"/>
 </c:Object>
 </o:EntitySymbol>
-<o:AssociationSymbol Id="o32">
+<o:AssociationSymbol Id="o33">
 <a:CreationDate>1712165429</a:CreationDate>
 <a:ModificationDate>1712165740</a:ModificationDate>
 <a:Rect>((-91901,18242), (-86806,21761))</a:Rect>
@@ -1676,10 +1688,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Association Ref="o56"/>
+<o:Association Ref="o57"/>
 </c:Object>
 </o:AssociationSymbol>
-<o:EntitySymbol Id="o37">
+<o:EntitySymbol Id="o38">
 <a:CreationDate>1712165555</a:CreationDate>
 <a:ModificationDate>1712165608</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
@@ -1699,10 +1711,10 @@ Identifiers 0 Arial,8,N</a:FontList>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:ManuallyResized>1</a:ManuallyResized>
 <c:Object>
-<o:Entity Ref="o57"/>
+<o:Entity Ref="o58"/>
 </c:Object>
 </o:EntitySymbol>
-<o:AssociationSymbol Id="o38">
+<o:AssociationSymbol Id="o39">
 <a:CreationDate>1712165615</a:CreationDate>
 <a:ModificationDate>1712165624</a:ModificationDate>
 <a:Rect>((-70819,56177), (-64262,59696))</a:Rect>
@@ -1717,10 +1729,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Association Ref="o58"/>
+<o:Association Ref="o59"/>
 </c:Object>
 </o:AssociationSymbol>
-<o:AssociationSymbol Id="o43">
+<o:AssociationSymbol Id="o44">
 <a:CreationDate>1712165685</a:CreationDate>
 <a:ModificationDate>1712165741</a:ModificationDate>
 <a:Rect>((-96460,40005), (-86078,43004))</a:Rect>
@@ -1735,17 +1747,17 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Association Ref="o59"/>
+<o:Association Ref="o60"/>
 </c:Object>
 </o:AssociationSymbol>
 </c:Symbols>
 </o:ConceptualDiagram>
 </c:ConceptualDiagrams>
 <c:DefaultDiagram>
-<o:ConceptualDiagram Ref="o5"/>
+<o:ConceptualDiagram Ref="o6"/>
 </c:DefaultDiagram>
 <c:Entities>
-<o:Entity Id="o47">
+<o:Entity Id="o48">
 <a:ObjectID>F0DDFA3B-611D-43DC-9F83-55CAE1486512</a:ObjectID>
 <a:Name>user</a:Name>
 <a:Code>USER</a:Code>
@@ -1754,7 +1766,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712239353</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:Identifiers>
-<o:Identifier Id="o60">
+<o:Identifier Id="o61">
 <a:ObjectID>21D75904-1427-4797-B874-CCA8DA8C0711</a:ObjectID>
 <a:Name>Identifiant_1</a:Name>
 <a:Code>IDENTIFIANT_1</a:Code>
@@ -1763,15 +1775,15 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712161671</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:Identifier.Attributes>
-<o:EntityAttribute Ref="o61"/>
+<o:EntityAttribute Ref="o62"/>
 </c:Identifier.Attributes>
 </o:Identifier>
 </c:Identifiers>
 <c:PrimaryIdentifier>
-<o:Identifier Ref="o60"/>
+<o:Identifier Ref="o61"/>
 </c:PrimaryIdentifier>
 <c:Attributes>
-<o:EntityAttribute Id="o61">
+<o:EntityAttribute Id="o62">
 <a:ObjectID>BE1C112F-108C-4186-91B2-3FA1F220CA33</a:ObjectID>
 <a:CreationDate>1712161659</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -1779,42 +1791,42 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:BaseAttribute.Mandatory>1</a:BaseAttribute.Mandatory>
 <c:DataItem>
-<o:DataItem Ref="o62"/>
+<o:DataItem Ref="o63"/>
 </c:DataItem>
 </o:EntityAttribute>
-<o:EntityAttribute Id="o63">
+<o:EntityAttribute Id="o64">
 <a:ObjectID>BF76E246-049F-4A67-A78C-2012F6F01B02</a:ObjectID>
 <a:CreationDate>1712161684</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
 <a:ModificationDate>1712162099</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:DataItem>
-<o:DataItem Ref="o64"/>
+<o:DataItem Ref="o65"/>
 </c:DataItem>
 </o:EntityAttribute>
-<o:EntityAttribute Id="o65">
+<o:EntityAttribute Id="o66">
 <a:ObjectID>180CD1A4-43A7-4C41-9D22-88E2891F3A3E</a:ObjectID>
 <a:CreationDate>1712161684</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
 <a:ModificationDate>1712162099</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:DataItem>
-<o:DataItem Ref="o66"/>
+<o:DataItem Ref="o67"/>
 </c:DataItem>
 </o:EntityAttribute>
-<o:EntityAttribute Id="o67">
+<o:EntityAttribute Id="o68">
 <a:ObjectID>A2728CBA-0529-4C3A-9859-051BFF511D4A</a:ObjectID>
 <a:CreationDate>1712239348</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
 <a:ModificationDate>1712239353</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:DataItem>
-<o:DataItem Ref="o68"/>
+<o:DataItem Ref="o69"/>
 </c:DataItem>
 </o:EntityAttribute>
 </c:Attributes>
 </o:Entity>
-<o:Entity Id="o48">
+<o:Entity Id="o49">
 <a:ObjectID>A35ED88D-889F-4193-AC7D-DF563470C3F1</a:ObjectID>
 <a:Name>friend</a:Name>
 <a:Code>FRIEND</a:Code>
@@ -1823,7 +1835,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712970447</a:ModificationDate>
 <a:Modifier>enzoo</a:Modifier>
 <c:Identifiers>
-<o:Identifier Id="o69">
+<o:Identifier Id="o70">
 <a:ObjectID>41F2C669-E105-413A-9C5E-15DCB8D441E2</a:ObjectID>
 <a:Name>Identifiant_1</a:Name>
 <a:Code>IDENTIFIANT_1</a:Code>
@@ -1832,15 +1844,15 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712162340</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:Identifier.Attributes>
-<o:EntityAttribute Ref="o70"/>
+<o:EntityAttribute Ref="o71"/>
 </c:Identifier.Attributes>
 </o:Identifier>
 </c:Identifiers>
 <c:PrimaryIdentifier>
-<o:Identifier Ref="o69"/>
+<o:Identifier Ref="o70"/>
 </c:PrimaryIdentifier>
 <c:Attributes>
-<o:EntityAttribute Id="o70">
+<o:EntityAttribute Id="o71">
 <a:ObjectID>AD4FCA79-EED6-4D5E-8227-6611EE14949E</a:ObjectID>
 <a:CreationDate>1712162289</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -1848,22 +1860,22 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:BaseAttribute.Mandatory>1</a:BaseAttribute.Mandatory>
 <c:DataItem>
-<o:DataItem Ref="o71"/>
+<o:DataItem Ref="o72"/>
 </c:DataItem>
 </o:EntityAttribute>
-<o:EntityAttribute Id="o72">
+<o:EntityAttribute Id="o73">
 <a:ObjectID>53F602C8-13E5-4070-B184-64F330F211D5</a:ObjectID>
 <a:CreationDate>1712970444</a:CreationDate>
 <a:Creator>enzoo</a:Creator>
-<a:ModificationDate>1712970447</a:ModificationDate>
+<a:ModificationDate>1713015583</a:ModificationDate>
 <a:Modifier>enzoo</a:Modifier>
 <c:DataItem>
-<o:DataItem Ref="o73"/>
+<o:DataItem Ref="o74"/>
 </c:DataItem>
 </o:EntityAttribute>
 </c:Attributes>
 </o:Entity>
-<o:Entity Id="o50">
+<o:Entity Id="o51">
 <a:ObjectID>789BC7B9-E8C2-4BF9-824C-B77446315BC9</a:ObjectID>
 <a:Name>game</a:Name>
 <a:Code>GAME</a:Code>
@@ -1872,7 +1884,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712162648</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:Identifiers>
-<o:Identifier Id="o74">
+<o:Identifier Id="o75">
 <a:ObjectID>E3AEDD55-7628-4528-A961-BF842B092199</a:ObjectID>
 <a:Name>Identifiant_1</a:Name>
 <a:Code>IDENTIFIANT_1</a:Code>
@@ -1881,15 +1893,15 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712162648</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:Identifier.Attributes>
-<o:EntityAttribute Ref="o75"/>
+<o:EntityAttribute Ref="o76"/>
 </c:Identifier.Attributes>
 </o:Identifier>
 </c:Identifiers>
 <c:PrimaryIdentifier>
-<o:Identifier Ref="o74"/>
+<o:Identifier Ref="o75"/>
 </c:PrimaryIdentifier>
 <c:Attributes>
-<o:EntityAttribute Id="o75">
+<o:EntityAttribute Id="o76">
 <a:ObjectID>03CC423A-658A-49B2-B440-96DA5B7AD287</a:ObjectID>
 <a:CreationDate>1712162613</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -1897,32 +1909,32 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:BaseAttribute.Mandatory>1</a:BaseAttribute.Mandatory>
 <c:DataItem>
-<o:DataItem Ref="o76"/>
+<o:DataItem Ref="o77"/>
 </c:DataItem>
 </o:EntityAttribute>
-<o:EntityAttribute Id="o77">
+<o:EntityAttribute Id="o78">
 <a:ObjectID>5D660EF2-ED3D-4C2A-AFC4-6AFE034DD242</a:ObjectID>
 <a:CreationDate>1712162613</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
 <a:ModificationDate>1712162648</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:DataItem>
-<o:DataItem Ref="o78"/>
+<o:DataItem Ref="o79"/>
 </c:DataItem>
 </o:EntityAttribute>
-<o:EntityAttribute Id="o79">
+<o:EntityAttribute Id="o80">
 <a:ObjectID>B0E3AC76-D6DC-44E1-85DE-80468DBD590E</a:ObjectID>
 <a:CreationDate>1712162613</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
 <a:ModificationDate>1712162648</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:DataItem>
-<o:DataItem Ref="o80"/>
+<o:DataItem Ref="o81"/>
 </c:DataItem>
 </o:EntityAttribute>
 </c:Attributes>
 </o:Entity>
-<o:Entity Id="o52">
+<o:Entity Id="o53">
 <a:ObjectID>574EDBF6-F714-4109-8D71-775B38C48C60</a:ObjectID>
 <a:Name>state</a:Name>
 <a:Code>STATE</a:Code>
@@ -1931,7 +1943,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712165179</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:Identifiers>
-<o:Identifier Id="o81">
+<o:Identifier Id="o82">
 <a:ObjectID>552C86F3-09C9-49F6-9053-8105409FDF37</a:ObjectID>
 <a:Name>Identifiant_1</a:Name>
 <a:Code>IDENTIFIANT_1</a:Code>
@@ -1940,15 +1952,15 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712165179</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:Identifier.Attributes>
-<o:EntityAttribute Ref="o82"/>
+<o:EntityAttribute Ref="o83"/>
 </c:Identifier.Attributes>
 </o:Identifier>
 </c:Identifiers>
 <c:PrimaryIdentifier>
-<o:Identifier Ref="o81"/>
+<o:Identifier Ref="o82"/>
 </c:PrimaryIdentifier>
 <c:Attributes>
-<o:EntityAttribute Id="o82">
+<o:EntityAttribute Id="o83">
 <a:ObjectID>8D5DC9B7-F63E-4174-87F9-360D87CC07AD</a:ObjectID>
 <a:CreationDate>1712164522</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -1956,22 +1968,22 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:BaseAttribute.Mandatory>1</a:BaseAttribute.Mandatory>
 <c:DataItem>
-<o:DataItem Ref="o83"/>
+<o:DataItem Ref="o84"/>
 </c:DataItem>
 </o:EntityAttribute>
-<o:EntityAttribute Id="o84">
+<o:EntityAttribute Id="o85">
 <a:ObjectID>F0D6D99F-4AE1-4951-A4B4-FBCA1FB6AB24</a:ObjectID>
 <a:CreationDate>1712164522</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
 <a:ModificationDate>1712164581</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:DataItem>
-<o:DataItem Ref="o85"/>
+<o:DataItem Ref="o86"/>
 </c:DataItem>
 </o:EntityAttribute>
 </c:Attributes>
 </o:Entity>
-<o:Entity Id="o55">
+<o:Entity Id="o56">
 <a:ObjectID>C95E2177-6C4F-465A-AFEB-48F9F4720D9F</a:ObjectID>
 <a:Name>elo</a:Name>
 <a:Code>ELO</a:Code>
@@ -1980,7 +1992,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712165436</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:Identifiers>
-<o:Identifier Id="o86">
+<o:Identifier Id="o87">
 <a:ObjectID>9A654333-190A-4D3C-91B9-7C8E1B1DED44</a:ObjectID>
 <a:Name>Identifiant_1</a:Name>
 <a:Code>IDENTIFIANT_1</a:Code>
@@ -1989,15 +2001,15 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712165399</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:Identifier.Attributes>
-<o:EntityAttribute Ref="o87"/>
+<o:EntityAttribute Ref="o88"/>
 </c:Identifier.Attributes>
 </o:Identifier>
 </c:Identifiers>
 <c:PrimaryIdentifier>
-<o:Identifier Ref="o86"/>
+<o:Identifier Ref="o87"/>
 </c:PrimaryIdentifier>
 <c:Attributes>
-<o:EntityAttribute Id="o87">
+<o:EntityAttribute Id="o88">
 <a:ObjectID>DEE24D0B-8924-456F-AAC2-9AC0372295CC</a:ObjectID>
 <a:CreationDate>1712165288</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2005,22 +2017,22 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:BaseAttribute.Mandatory>1</a:BaseAttribute.Mandatory>
 <c:DataItem>
-<o:DataItem Ref="o88"/>
+<o:DataItem Ref="o89"/>
 </c:DataItem>
 </o:EntityAttribute>
-<o:EntityAttribute Id="o89">
+<o:EntityAttribute Id="o90">
 <a:ObjectID>7BC33C93-579F-4A2F-928D-751DD788FF49</a:ObjectID>
 <a:CreationDate>1712165288</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
 <a:ModificationDate>1712165399</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:DataItem>
-<o:DataItem Ref="o90"/>
+<o:DataItem Ref="o91"/>
 </c:DataItem>
 </o:EntityAttribute>
 </c:Attributes>
 </o:Entity>
-<o:Entity Id="o57">
+<o:Entity Id="o58">
 <a:ObjectID>C4C0F157-2FC1-492D-9E90-C232E24BE9F0</a:ObjectID>
 <a:Name>gamemode</a:Name>
 <a:Code>GAMEMODE</a:Code>
@@ -2029,7 +2041,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712971610</a:ModificationDate>
 <a:Modifier>enzoo</a:Modifier>
 <c:Identifiers>
-<o:Identifier Id="o91">
+<o:Identifier Id="o92">
 <a:ObjectID>89632FF8-8035-441C-A9A1-42EFE9107D40</a:ObjectID>
 <a:Name>Identifiant_1</a:Name>
 <a:Code>IDENTIFIANT_1</a:Code>
@@ -2038,15 +2050,15 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712971610</a:ModificationDate>
 <a:Modifier>enzoo</a:Modifier>
 <c:Identifier.Attributes>
-<o:EntityAttribute Ref="o92"/>
+<o:EntityAttribute Ref="o93"/>
 </c:Identifier.Attributes>
 </o:Identifier>
 </c:Identifiers>
 <c:PrimaryIdentifier>
-<o:Identifier Ref="o91"/>
+<o:Identifier Ref="o92"/>
 </c:PrimaryIdentifier>
 <c:Attributes>
-<o:EntityAttribute Id="o92">
+<o:EntityAttribute Id="o93">
 <a:ObjectID>EE127392-C8D8-47EC-AA2F-3D5E50AD4B9D</a:ObjectID>
 <a:CreationDate>1712165564</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2054,24 +2066,24 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>enzoo</a:Modifier>
 <a:BaseAttribute.Mandatory>1</a:BaseAttribute.Mandatory>
 <c:DataItem>
-<o:DataItem Ref="o93"/>
+<o:DataItem Ref="o94"/>
 </c:DataItem>
 </o:EntityAttribute>
-<o:EntityAttribute Id="o94">
+<o:EntityAttribute Id="o95">
 <a:ObjectID>071C238A-0A31-43C4-AA4A-0B22D8F43EFE</a:ObjectID>
 <a:CreationDate>1712165564</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
 <a:ModificationDate>1712165596</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:DataItem>
-<o:DataItem Ref="o95"/>
+<o:DataItem Ref="o96"/>
 </c:DataItem>
 </o:EntityAttribute>
 </c:Attributes>
 </o:Entity>
 </c:Entities>
 <c:DataItems>
-<o:DataItem Id="o62">
+<o:DataItem Id="o63">
 <a:ObjectID>C142359B-71D7-4783-9BEE-A93829E0BA01</a:ObjectID>
 <a:Name>id_user</a:Name>
 <a:Code>ID_USER</a:Code>
@@ -2080,7 +2092,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712161671</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o64">
+<o:DataItem Id="o65">
 <a:ObjectID>22B79991-18AA-4347-AB28-933182D6EEF5</a:ObjectID>
 <a:Name>password</a:Name>
 <a:Code>PASSWORD</a:Code>
@@ -2089,7 +2101,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712162099</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o66">
+<o:DataItem Id="o67">
 <a:ObjectID>A9484EC7-17C7-4B81-8DDC-7BBBD75AE9E6</a:ObjectID>
 <a:Name>username</a:Name>
 <a:Code>USERNAME</a:Code>
@@ -2098,7 +2110,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712162099</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o71">
+<o:DataItem Id="o72">
 <a:ObjectID>1F8DE250-3963-422E-B607-9DB1DBFD0DF6</a:ObjectID>
 <a:Name>id_friendship</a:Name>
 <a:Code>ID_FRIENDSHIP</a:Code>
@@ -2107,7 +2119,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712165701</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o76">
+<o:DataItem Id="o77">
 <a:ObjectID>39FC85A6-D686-4F5B-81E3-99E9641B23D4</a:ObjectID>
 <a:Name>id_game</a:Name>
 <a:Code>ID_GAME</a:Code>
@@ -2116,7 +2128,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712162648</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o78">
+<o:DataItem Id="o79">
 <a:ObjectID>FC8A3AC6-A978-4A1A-8145-6FF6A84817EE</a:ObjectID>
 <a:Name>create_at</a:Name>
 <a:Code>CREATE_AT</a:Code>
@@ -2125,7 +2137,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712162648</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o80">
+<o:DataItem Id="o81">
 <a:ObjectID>B60AD681-9CAB-45B5-A664-E743CE31E284</a:ObjectID>
 <a:Name>update_at</a:Name>
 <a:Code>UPDATE_AT</a:Code>
@@ -2134,7 +2146,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712162648</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o96">
+<o:DataItem Id="o97">
 <a:ObjectID>1DCD5B3D-A8F9-4BF1-BE34-ECE618A69575</a:ObjectID>
 <a:Name>color</a:Name>
 <a:Code>COLOR</a:Code>
@@ -2143,7 +2155,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712162833</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o97">
+<o:DataItem Id="o98">
 <a:ObjectID>27CD06B7-44D1-4971-89B4-365DF1D8136D</a:ObjectID>
 <a:Name>remaining_time</a:Name>
 <a:Code>REMAINING_TIME</a:Code>
@@ -2152,7 +2164,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712162869</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o98">
+<o:DataItem Id="o99">
 <a:ObjectID>42058EC2-41EB-4EB8-B3BB-8343F94E9506</a:ObjectID>
 <a:Name>timestamp</a:Name>
 <a:Code>TIMESTAMP</a:Code>
@@ -2161,7 +2173,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712163053</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o85">
+<o:DataItem Id="o86">
 <a:ObjectID>97E0D24E-4C1B-499B-BA23-4F867008A74B</a:ObjectID>
 <a:Name>move</a:Name>
 <a:Code>MOVE</a:Code>
@@ -2170,7 +2182,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712164656</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o83">
+<o:DataItem Id="o84">
 <a:ObjectID>559F835A-475D-4FE5-B5B7-9B51BB789220</a:ObjectID>
 <a:Name>id_state</a:Name>
 <a:Code>ID_STATE</a:Code>
@@ -2179,7 +2191,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712164581</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o99">
+<o:DataItem Id="o100">
 <a:ObjectID>987A1057-F766-43FD-B36A-E3142C09764D</a:ObjectID>
 <a:Name>Attribut_</a:Name>
 <a:Code>ATTRIBUT_</a:Code>
@@ -2188,7 +2200,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712164704</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o90">
+<o:DataItem Id="o91">
 <a:ObjectID>BC26F95E-DFFE-4FDB-BB28-FB5A4C4A393C</a:ObjectID>
 <a:Name>elo</a:Name>
 <a:Code>ELO</a:Code>
@@ -2197,7 +2209,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712165399</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o88">
+<o:DataItem Id="o89">
 <a:ObjectID>56FE21EA-89D6-4D1C-BF47-E364D58CD1A0</a:ObjectID>
 <a:Name>id_elo</a:Name>
 <a:Code>ID_ELO</a:Code>
@@ -2206,7 +2218,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712165710</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o93">
+<o:DataItem Id="o94">
 <a:ObjectID>0EF77260-C564-46E0-978D-FE05E9315A20</a:ObjectID>
 <a:Name>id_gamemode</a:Name>
 <a:Code>ID_GAMEMODE</a:Code>
@@ -2215,7 +2227,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712960815</a:ModificationDate>
 <a:Modifier>enzoo</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o95">
+<o:DataItem Id="o96">
 <a:ObjectID>6CB95F78-29DD-4FFE-8CC3-EF03F0B7737A</a:ObjectID>
 <a:Name>libelle</a:Name>
 <a:Code>LIBELLE</a:Code>
@@ -2224,7 +2236,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712165596</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o68">
+<o:DataItem Id="o69">
 <a:ObjectID>2C012A96-9C9C-4129-826C-44FA7FDBFDC3</a:ObjectID>
 <a:Name>user_xp</a:Name>
 <a:Code>USER_XP</a:Code>
@@ -2233,27 +2245,18 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712239629</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:DataItem>
-<o:DataItem Id="o100">
+<o:DataItem Id="o74">
 <a:ObjectID>1C91400E-61C9-4198-84B0-DB02905DD592</a:ObjectID>
 <a:Name>status</a:Name>
 <a:Code>STATUS</a:Code>
 <a:CreationDate>1712970412</a:CreationDate>
 <a:Creator>enzoo</a:Creator>
-<a:ModificationDate>1712970443</a:ModificationDate>
-<a:Modifier>enzoo</a:Modifier>
-</o:DataItem>
-<o:DataItem Id="o73">
-<a:ObjectID>EDD03577-97E1-41D6-AE37-376CE008ED5F</a:ObjectID>
-<a:Name>stauts</a:Name>
-<a:Code>STAUTS</a:Code>
-<a:CreationDate>1712970444</a:CreationDate>
-<a:Creator>enzoo</a:Creator>
-<a:ModificationDate>1712970447</a:ModificationDate>
+<a:ModificationDate>1713015583</a:ModificationDate>
 <a:Modifier>enzoo</a:Modifier>
 </o:DataItem>
 </c:DataItems>
 <c:Associations>
-<o:Association Id="o49">
+<o:Association Id="o50">
 <a:ObjectID>F4FCAD6D-FF6B-47E6-8CCE-84B61D8331C7</a:ObjectID>
 <a:Name>ami</a:Name>
 <a:Code>AMI</a:Code>
@@ -2262,7 +2265,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712970443</a:ModificationDate>
 <a:Modifier>enzoo</a:Modifier>
 </o:Association>
-<o:Association Id="o51">
+<o:Association Id="o52">
 <a:ObjectID>2AC0D121-363C-47D8-86CC-945E4BABDA40</a:ObjectID>
 <a:Name>game user</a:Name>
 <a:Code>GAME_USER</a:Code>
@@ -2279,7 +2282,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:BaseAttribute.Mandatory>1</a:BaseAttribute.Mandatory>
 <c:DataItem>
-<o:DataItem Ref="o96"/>
+<o:DataItem Ref="o97"/>
 </c:DataItem>
 </o:AssociationAttribute>
 <o:AssociationAttribute Id="o102">
@@ -2289,7 +2292,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712162874</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:DataItem>
-<o:DataItem Ref="o97"/>
+<o:DataItem Ref="o98"/>
 </c:DataItem>
 </o:AssociationAttribute>
 <o:AssociationAttribute Id="o103">
@@ -2299,12 +2302,12 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712163053</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 <c:DataItem>
-<o:DataItem Ref="o98"/>
+<o:DataItem Ref="o99"/>
 </c:DataItem>
 </o:AssociationAttribute>
 </c:Attributes>
 </o:Association>
-<o:Association Id="o53">
+<o:Association Id="o54">
 <a:ObjectID>6E23F1FA-AD9A-405E-92FE-A48FB27732B2</a:ObjectID>
 <a:Name>game_state</a:Name>
 <a:Code>GAME_STATE</a:Code>
@@ -2313,7 +2316,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712165105</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:Association>
-<o:Association Id="o54">
+<o:Association Id="o55">
 <a:ObjectID>D89186F0-F205-429F-AB69-A05C92BF1155</a:ObjectID>
 <a:Name>user_state</a:Name>
 <a:Code>USER_STATE</a:Code>
@@ -2322,7 +2325,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712164988</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:Association>
-<o:Association Id="o56">
+<o:Association Id="o57">
 <a:ObjectID>916D3C7C-989E-4065-B0F1-5FAF7CEC4EFD</a:ObjectID>
 <a:Name>elo_user</a:Name>
 <a:Code>ELO_USER</a:Code>
@@ -2331,7 +2334,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712165451</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:Association>
-<o:Association Id="o58">
+<o:Association Id="o59">
 <a:ObjectID>22036EE2-33E6-4CEF-A8C3-01410BAC582F</a:ObjectID>
 <a:Name>game_type</a:Name>
 <a:Code>GAME_TYPE</a:Code>
@@ -2340,7 +2343,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1712165624</a:ModificationDate>
 <a:Modifier>cyrig</a:Modifier>
 </o:Association>
-<o:Association Id="o59">
+<o:Association Id="o60">
 <a:ObjectID>5C03D3DD-FF3F-445D-929A-3CD04E06212C</a:ObjectID>
 <a:Name>elo_gamemode</a:Name>
 <a:Code>ELO_GAMEMODE</a:Code>
@@ -2351,7 +2354,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Association>
 </c:Associations>
 <c:AssociationsLinks>
-<o:AssociationLink Id="o9">
+<o:AssociationLink Id="o10">
 <a:ObjectID>132A206A-A0BD-4973-88D6-4B860753D0A6</a:ObjectID>
 <a:CreationDate>1712162226</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2359,13 +2362,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>0,n</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o49"/>
+<o:Association Ref="o50"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o47"/>
+<o:Entity Ref="o48"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o12">
+<o:AssociationLink Id="o13">
 <a:ObjectID>BB64BA8D-A8E8-44BE-AA58-A54FEAF53670</a:ObjectID>
 <a:CreationDate>1712162226</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2373,13 +2376,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>enzoo</a:Modifier>
 <a:Cardinality>1,1</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o49"/>
+<o:Association Ref="o50"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o48"/>
+<o:Entity Ref="o49"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o16">
+<o:AssociationLink Id="o17">
 <a:ObjectID>D457A5E4-6C44-44B7-A6FD-834C2D9D380B</a:ObjectID>
 <a:CreationDate>1712162692</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2387,13 +2390,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>0,n</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o51"/>
+<o:Association Ref="o52"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o50"/>
+<o:Entity Ref="o51"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o18">
+<o:AssociationLink Id="o19">
 <a:ObjectID>877BF281-2772-49AC-A2F0-BC0A97C32529</a:ObjectID>
 <a:CreationDate>1712162692</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2401,13 +2404,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>0,n</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o51"/>
+<o:Association Ref="o52"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o47"/>
+<o:Entity Ref="o48"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o21">
+<o:AssociationLink Id="o22">
 <a:ObjectID>85E956CE-C0CC-41FF-AA9D-F012F25A8AEE</a:ObjectID>
 <a:CreationDate>1712164950</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2415,13 +2418,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>0,n</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o53"/>
+<o:Association Ref="o54"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o50"/>
+<o:Entity Ref="o51"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o24">
+<o:AssociationLink Id="o25">
 <a:ObjectID>29C1901F-C442-44E9-B312-04F9673AB211</a:ObjectID>
 <a:CreationDate>1712164950</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2429,13 +2432,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>1,1</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o53"/>
+<o:Association Ref="o54"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o52"/>
+<o:Entity Ref="o53"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o27">
+<o:AssociationLink Id="o28">
 <a:ObjectID>FF364583-AE39-4703-BC61-D036B586C1D5</a:ObjectID>
 <a:CreationDate>1712164952</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2443,13 +2446,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>1,1</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o54"/>
+<o:Association Ref="o55"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o52"/>
+<o:Entity Ref="o53"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o29">
+<o:AssociationLink Id="o30">
 <a:ObjectID>873A7DB1-8B5B-46DA-8C4F-7BD1787E26D3</a:ObjectID>
 <a:CreationDate>1712164952</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2457,13 +2460,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>0,n</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o54"/>
+<o:Association Ref="o55"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o47"/>
+<o:Entity Ref="o48"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o33">
+<o:AssociationLink Id="o34">
 <a:ObjectID>AA1C6027-0249-49E3-BDA3-F60DBF824A7F</a:ObjectID>
 <a:CreationDate>1712165429</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2471,13 +2474,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>1,1</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o56"/>
+<o:Association Ref="o57"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o55"/>
+<o:Entity Ref="o56"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o35">
+<o:AssociationLink Id="o36">
 <a:ObjectID>D8379198-080C-430B-89D0-E95A113E36F8</a:ObjectID>
 <a:CreationDate>1712165429</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2485,13 +2488,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>0,n</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o56"/>
+<o:Association Ref="o57"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o47"/>
+<o:Entity Ref="o48"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o39">
+<o:AssociationLink Id="o40">
 <a:ObjectID>B9FECFD7-1804-4DFC-95EE-C24E04532A74</a:ObjectID>
 <a:CreationDate>1712165615</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2499,13 +2502,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>0,n</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o58"/>
+<o:Association Ref="o59"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o57"/>
+<o:Entity Ref="o58"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o41">
+<o:AssociationLink Id="o42">
 <a:ObjectID>36D1BEE6-3F08-48B2-9528-69F3034EEDD6</a:ObjectID>
 <a:CreationDate>1712165615</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2513,13 +2516,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>1,1</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o58"/>
+<o:Association Ref="o59"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o50"/>
+<o:Entity Ref="o51"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o44">
+<o:AssociationLink Id="o45">
 <a:ObjectID>0627A295-FE6C-48BC-A0BB-8FD573FC0628</a:ObjectID>
 <a:CreationDate>1712165685</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2527,13 +2530,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>1,1</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o59"/>
+<o:Association Ref="o60"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o55"/>
+<o:Entity Ref="o56"/>
 </c:Object2>
 </o:AssociationLink>
-<o:AssociationLink Id="o46">
+<o:AssociationLink Id="o47">
 <a:ObjectID>3B3D26FC-0BE4-4238-8D13-BD1444AEC485</a:ObjectID>
 <a:CreationDate>1712165685</a:CreationDate>
 <a:Creator>cyrig</a:Creator>
@@ -2541,10 +2544,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>cyrig</a:Modifier>
 <a:Cardinality>0,n</a:Cardinality>
 <c:Object1>
-<o:Association Ref="o59"/>
+<o:Association Ref="o60"/>
 </c:Object1>
 <c:Object2>
-<o:Entity Ref="o57"/>
+<o:Entity Ref="o58"/>
 </c:Object2>
 </o:AssociationLink>
 </c:AssociationsLinks>
@@ -2576,6 +2579,20 @@ LABL 0 Arial,8,N</a:FontList>
 <a:TargetModelClassID>5F45F978-C4F3-4E35-A3FC-AF3318663A0F</a:TargetModelClassID>
 <c:SessionShortcuts>
 <o:Shortcut Ref="o4"/>
+</c:SessionShortcuts>
+</o:TargetModel>
+<o:TargetModel Id="o106">
+<a:ObjectID>CFF169AE-E085-40FF-87EE-EBFE336BA075</a:ObjectID>
+<a:Name>NeoChess</a:Name>
+<a:Code>NEOCHESS</a:Code>
+<a:CreationDate>1713015517</a:CreationDate>
+<a:Creator>enzoo</a:Creator>
+<a:ModificationDate>1713015517</a:ModificationDate>
+<a:Modifier>enzoo</a:Modifier>
+<a:TargetModelID>EF3F8FA3-757A-4FE7-BC6B-28F8F7D761CF</a:TargetModelID>
+<a:TargetModelClassID>5F45F978-C4F3-4E35-A3FC-AF3318663A0F</a:TargetModelClassID>
+<c:SessionShortcuts>
+<o:Shortcut Ref="o5"/>
 </c:SessionShortcuts>
 </o:TargetModel>
 </c:TargetModels>

@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class user extends Model {
+  class gamemode extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,35 +13,30 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  user.init({
+  gamemode.init({
     id: {
-        type: DataTypes.INTEGER,
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        autoIncrement: true
-    },
-    password: {
-        type: DataTypes.STRING,
-      },
-      username: {
-        type: DataTypes.STRING,
-        unique: true,
-      },
-      xp: {
         type: DataTypes.INTEGER,
-        defaultValue: 0,
       },
-      createdAt: {
+      libelle: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
       },
-      updatedAt: {
-        allowNull: false,
-        type: DataTypes.DATE,
+      gamemode: {
+        type: DataTypes.INTEGER, 
+        allowNull: false, 
+        references: {
+            model: "gamemode",
+            key: "id",
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE",
+        }
       },
   }, {
     sequelize,
-    modelName: 'user',
+    modelName: 'gamemode',
   });
-  return user;
+  return gamemode;
 };

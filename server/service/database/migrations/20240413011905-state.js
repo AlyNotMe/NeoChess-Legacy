@@ -10,24 +10,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      id_game: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "games",
-          key: "id",
-        },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
-      },
-      id_user: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "user",
-          key: "id",
-        },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
-      },
       move: {
         allowNull: false,
         type: Sequelize.STRING,
@@ -38,6 +20,24 @@ module.exports = {
         defaultValue: 1800, // 30 minutes par défaut
       },
     });
+    await queryInterface.addColumn('state', "id_game", {
+        type: Sequelize.INTEGER, 
+        allowNull: false, 
+        references: {
+            model: "game",
+            key: "id",
+        }
+      }),
+      await queryInterface.addColumn('state', "id_user", {
+        type: Sequelize.INTEGER, 
+        allowNull: false, 
+        references: {
+            model: "user",
+            key: "id",
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE",
+        },
+      });
   },
 
   async down(queryInterface, Sequelize) {

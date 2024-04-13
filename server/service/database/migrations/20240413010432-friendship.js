@@ -10,32 +10,32 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      user_id: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: "user",
-          key: "id",
-          onDelete: "CASCADE",
-          onUpdate: "CASCADE",
-        },
-      },
-      friend_id: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: "user",
-          key: "id",
-          onDelete: "CASCADE",
-          onUpdate: "CASCADE",
-        },
-      },
       status: {
         allowNull: false,
         type: Sequelize.ENUM("pending", "accepted", "rejected"),
         defaultValue: "pending",
       },
-    });
+    }),
+      await queryInterface.addColumn("friendship", "id_user", {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "user",
+          key: "id",
+          onDelete: "CASCADE",
+          onUpdate: "CASCADE",
+        },
+      }),
+      await queryInterface.addColumn("friendship", "friend_id", {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "user",
+          key: "id",
+          onDelete: "CASCADE",
+          onUpdate: "CASCADE",
+        },
+      });
   },
 
   async down(queryInterface, Sequelize) {

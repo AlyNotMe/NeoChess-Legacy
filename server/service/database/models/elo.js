@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class game extends Model {
+  class elo extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,27 +11,33 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  game.init(
+  elo.init(
     {
       id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
         type: DataTypes.INTEGER,
-      },
-      createdAt: {
         allowNull: false,
-        type: DataTypes.DATE,
+        primaryKey: true,
+        autoIncrement: true,
       },
-      updatedAt: {
+      elo: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: DataTypes.INTEGER,
+        defaultValue: 1000,
       },
+      id_user: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "user",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      }
     },
     {
       sequelize,
-      modelName: "game",
+      modelName: "elo",
     }
   );
-  return game;
+  return elo;
 };

@@ -15,6 +15,16 @@ module.exports = {
         type: Sequelize.STRING,
       }
     });
+    await queryInterface.addColumn("game", "gamemode", {
+        type: Sequelize.INTEGER, 
+        allowNull: false, 
+        references: {
+            model: "gamemode",
+            key: "id",
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE",
+        }
+    })
   },
 
   async down(queryInterface, Sequelize) {

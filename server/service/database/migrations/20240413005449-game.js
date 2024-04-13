@@ -10,14 +10,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      gamemode: {
-        allowNull: false,
-        type: Sequelize.STRING,
-        references: {
-          model: "gamemode",
-          key: "id",
-        },
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

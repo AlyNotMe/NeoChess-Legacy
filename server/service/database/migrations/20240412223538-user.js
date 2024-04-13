@@ -30,7 +30,8 @@ module.exports = {
         type: Sequelize.DATE,
       },
     });
-  },
+  }, 
+
 
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable("user");

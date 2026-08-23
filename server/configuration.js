@@ -55,13 +55,14 @@ app.use(express.urlencoded({ extended: true }));
  *************************************************************/
 
 const session = require("express-session");
-app.use(
-  session({
-    name: config.SESSION_NAME,
-    secret: config.SESSION_SECRET,
-    saveUninitialized: false,
-    cookie: {
-      maxAge: 1 * 60 * 60 * 1000,
-    },
-  })
-);
+const sessionMiddleware = session({
+  name: config.SESSION_NAME,
+  secret: config.SESSION_SECRET,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1 * 60 * 60 * 1000,
+  },
+});
+app.use(sessionMiddleware);
+
+module.exports = sessionMiddleware;

@@ -14,7 +14,10 @@ globalThis.app = express();
  *
  *************************************************************/
 
+// Load global configuration (environment variables, app name, port, etc.)
 globalThis.config = require("./config.js");
+
+// Apply Express configuration (views, CORS, compression, sessions, etc.)
 require("./configuration.js");
 
 /*************************************************************
@@ -23,8 +26,11 @@ require("./configuration.js");
  *
  *************************************************************/
 
-require("./middlewares/global.js");
-require("./routers/routes.js");
+// Load global middlewares (error handlers, shared utilities, etc.)
+require("./middlewares/index.js");
+
+// Load routes (authentication, home, etc.)
+require("./routers/index.js");
 
 const https = require("https");
 const fs = require("fs");

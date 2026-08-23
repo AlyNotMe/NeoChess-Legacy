@@ -1,91 +1,55 @@
 const fs = require("fs");
 require("colors");
 
+function formatDate(date = new Date()) {
+  const y = date.getFullYear();
+  const mo = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  const h = String(date.getHours()).padStart(2, "0");
+  const mi = String(date.getMinutes()).padStart(2, "0");
+  const s = String(date.getSeconds()).padStart(2, "0");
+  return `[${y} ${mo} ${d} - ${h}:${mi}:${s}]`;
+}
+
 const loading = async (path) => {
-  const date = new Date();
-
-  // Extraction des composants de la date
-  const annee = date.getFullYear();
-  const mois = String(date.getMonth() + 1).padStart(2, "0"); // Ajout du zéro devant si nécessaire
-  const jour = String(date.getDate()).padStart(2, "0"); // Ajout du zéro devant si nécessaire
-  const heure = String(date.getHours()).padStart(2, "0"); // Ajout du zéro devant si nécessaire
-  const minute = String(date.getMinutes()).padStart(2, "0"); // Ajout du zéro devant si nécessaire
-  const seconde = String(date.getSeconds()).padStart(2, "0");
-
-  // Création de la chaîne de caractères formatée
-  const sortie = `[${annee} ${mois} ${jour} - ${heure}:${minute}:${seconde}]`
-    .green;
-  const message = `Server started`.red;
-  const msg = `${sortie} ${message}`;
-  console.log(msg);
-
+  console.log(`${formatDate().green} ${"Server started".red}`);
   await loadFiles(path);
   console.log("\n");
 };
 
-const loadFiles = async (path) => {
-  return new Promise((resolve, reject) => {
-    fs.readdir(path, (err, files) => {
-      if (err) {
-        console.log("Erreur lors de la lecture du répertoire :", err);
-        return;
-      }
+const loadFiles = async (dirPath) => {
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
 
-      files.forEach((file) => {
-        fs.stat(`${path}/${file}`, (err, stats) => {
-          if (err) {
-            console.error(
-              "Erreur lors de la récupération des informations sur le fichier :",
-              err
-            );
-            return;
-          }
+  for (const entry of entries) {
+    const fullPath = `${dirPath}/${entry.name}`;
 
-          if (stats.isDirectory()) {
-            loadFiles(`${path}/${file}`);
-          } else {
-            const date = new Date();
-
-            // Extraction des composants de la date
-            const annee = date.getFullYear();
-            const mois = String(date.getMonth() + 1).padStart(2, "0"); // Ajout du zéro devant si nécessaire
-            const jour = String(date.getDate()).padStart(2, "0"); // Ajout du zéro devant si nécessaire
-            const heure = String(date.getHours()).padStart(2, "0"); // Ajout du zéro devant si nécessaire
-            const minute = String(date.getMinutes()).padStart(2, "0"); // Ajout du zéro devant si nécessaire
-            const seconde = String(date.getSeconds()).padStart(2, "0");
-
-            // Création de la chaîne de caractères formatée
-            const sortie =
-              `[${annee} ${mois} ${jour} - ${heure}:${minute}:${seconde}]`
-                .green;
-            const message = `${path}/${file} loaded with success`.red;
-            const msg = `${sortie} ${message}`;
-            console.log(msg);
-          }
-        });
-      });
-    });
-
-    setTimeout(resolve, 1 * 1000);
-  });
+    if (entry.isDirectory()) {
+      await loadFiles(fullPath);
+    } else {
+      console.log(`${formatDate().green} ${`${fullPath} loaded with success`.red}`);
+    }
+  }
 };
 
 async function load() {
   console.clear();
   await loading("./server");
 
+  const url = `https://${config.url}:${config.port}`;
+  const line1 = `${config.name} -- ${config.version} // Server run at current url : ${url}`;
+  const line2 = `Author Enzoo_Kms`;
+  const width = Math.max(line1.length, line2.length) + 2;
+  const border = "-".repeat(width);
+
+  const colored1 = `${config.name.yellow} -- ${config.version.green} // Server run at current url : ${url.blue}`;
+  const colored2 = `${"Author Enzoo_Kms".red}`;
+
   console.log(
     `/*
-|-------------------------------------------------------------------------------------------|
-| ${config.name.yellow} -- ${
-      config.version.green
-    } // Server run at current url : ${
-      `https://${config.url}:${config.port}`.blue
-    }             |
-| ${
-      "Author Enzoo_Kms".red
-    }                                                                          |
-|-------------------------------------------------------------------------------------------|
+|${border}|
+| ${colored1}${" ".repeat(width - 1 - line1.length)}|
+| ${colored2}${" ".repeat(width - 1 - line2.length)}|
+|${border}|
 */\n`
   );
 }
@@ -100,57 +64,30 @@ class Event {
   }
 
   #header() {
-    this.output += `|`;
-    for (let i = 0; i < this.size; i++) {
-      this.output += "-";
-    }
-    this.output += `|\n| ${this.name.green}`;
+    const line = "-".repeat(this.size);
     if (this.name.length > this.size)
-      throw new Error("name of event is to long");
+      throw new Error("name of event is too long");
 
-    for (let i = 0; i < this.size - 1 - this.name.length; i++) {
-      this.output += " ";
-    }
-    this.output += `|\n| `;
+    this.output += `|${line}|\n`;
+    this.output += `| ${this.name.green}${" ".repeat(this.size - 1 - this.name.length)}|\n`;
 
-    const currentDate = new Date();
-    const date =
-      `[ ${currentDate.getDate()}/${15}/${currentDate.getUTCFullYear()} ${this.#format(
-        currentDate.getHours()
-      )}:${this.#format(currentDate.getMinutes())}:${this.#format(
-        currentDate.getSeconds()
-      )} ]`.magenta;
-    this.output += date;
-    for (let i = 0; i < this.size + 9 - date.length; i++) {
-      this.output += " ";
-    }
-    this.output += `|\n|`;
-    for (let i = 0; i < this.size; i++) {
-      this.output += "-";
-    }
-    this.output += "|";
+    const date = new Date();
+    const dateStr = `[ ${String(date.getDate()).padStart(2, "0")}/${String(date.getMonth() + 1).padStart(2, "0")}/${date.getUTCFullYear()} ${this.#format(date.getHours())}:${this.#format(date.getMinutes())}:${this.#format(date.getSeconds())} ]`;
+    const dateColored = dateStr.magenta;
+    this.output += `| ${dateColored}${" ".repeat(this.size - 1 - dateStr.length)}|\n`;
+    this.output += `|${line}|`;
   }
 
   insertLine(name, value) {
-    this.output += "\n| ";
-    this.output += `${name} : ${value}`;
-
-    const max = this.size - name.length - value.length - 4;
-    for (let i = 0; i < max; i++) {
-      this.output += " ";
-    }
-
-    this.output += "|";
+    const content = `${name} : ${value}`;
+    const padding = Math.max(0, this.size - 2 - content.length);
+    this.output += `\n| ${content}${" ".repeat(padding)}|`;
     return this;
   }
 
   run() {
-    this.output += "\n|";
-    for (let i = 0; i < this.size; i++) {
-      this.output += "-";
-    }
-    this.output += "|\n";
-
+    const line = "-".repeat(this.size);
+    this.output += `\n|${line}|\n`;
     console.log(this.output);
   }
 
@@ -158,7 +95,6 @@ class Event {
     if (n < 10) {
       return `0${n}`;
     }
-
     return n;
   }
 }

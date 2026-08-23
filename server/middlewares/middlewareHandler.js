@@ -7,29 +7,27 @@
  *
  *************************************************************/
 
-class Middleware {
-  static globalMiddleware = [];
+class MiddlewareHandler {
+  static globalMiddlewares = [];
   constructor() {
     this.app = app;
-    this.Middleware = [];
+    this.middleware = [];
   }
 
   /**
-   *
-   * @param {Path} path
+   * @param {string} path
    */
-  static setMiddleware(path) {
-    const handler = require(`./middleware/${path}.js`);
-    Middleware.globalMiddleware.push(handler);
+  static register(path) {
+    const definition = require(`./middleware/${path}.js`);
+    MiddlewareHandler.globalMiddlewares.push(definition);
   }
 
   /**
-   *
-   * @param {Path} path
+   * @param {string} path
    */
-  setMiddleware(path) {
-    const handler = require(`./middleware/${path}.js`);
-    this.Middleware.push(handler()[1]);
+  add(path) {
+    const definition = require(`./middleware/${path}.js`);
+    this.middleware.push(definition()[1]);
   }
 
   /*************************************************************
@@ -38,11 +36,11 @@ class Middleware {
    *
    *************************************************************/
   static run() {
-    for (const middleware of Middleware.globalMiddleware) {
+    for (const middleware of MiddlewareHandler.globalMiddlewares) {
       const [path, handler] = middleware();
       app.use(path, handler);
     }
   }
 }
 
-module.exports = Middleware;
+module.exports = MiddlewareHandler;

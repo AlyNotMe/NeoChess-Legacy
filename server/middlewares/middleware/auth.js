@@ -8,7 +8,7 @@
  *
  *************************************************************/
 
-const Middleware = require("../middleware.js");
+const Middleware = require("../middlewareRegistry.js");
 
 module.exports = new Middleware().middleware((req, res, next) => {
   const langName = req.params.language || config.default_language;

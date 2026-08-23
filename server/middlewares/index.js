@@ -1,4 +1,4 @@
-const Middleware = require("./handler.js");
+const MiddlewareHandler = require("./middlewareHandler.js");
 
 /*************************************************************
  *
@@ -6,9 +6,9 @@ const Middleware = require("./handler.js");
  *
  *************************************************************/
 
-Middleware.setMiddleware("logger");
-Middleware.setMiddleware("language");
-Middleware.setMiddleware("helper");
+MiddlewareHandler.register("logger");
+MiddlewareHandler.register("language");
+MiddlewareHandler.register("helper");
 
 /*************************************************************
  *
@@ -20,4 +20,4 @@ Middleware.setMiddleware("helper");
  *
  *************************************************************/
 
-Middleware.run();
+MiddlewareHandler.run();

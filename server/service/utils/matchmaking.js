@@ -5,6 +5,10 @@ const matchmakingQueue = [];
 
 // Fonction pour rejoindre la file d'attente de matchmaking
 const joinMatchmakingQueue = (userId) => {
+  // Vérifie si le joueur est déjà dans la file d'attente de match
+  if (matchmakingQueue.find((id) => id === userId)) {
+    return 0;
+  }
   // Ajoute l'ID du joueur à la file d'attente
   matchmakingQueue.push(userId);
   // Vérifie si une partie peut être créée

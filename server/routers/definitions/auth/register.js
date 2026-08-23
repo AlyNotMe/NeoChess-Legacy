@@ -1,19 +1,27 @@
 /*************************************************************
  *
- * Auth/login router
+ * Auth/register router
  *
  *************************************************************/
 
-const Route = require("../../route.js");
+const Route = require("../../routeRegistry.js");
 const route = new Route();
 const validator = require("../../../service/validator.js");
 
-const get = route.route("/:language?/login", (req, res) => {
-  const translate = req.load("auth/login", "login");
-  const langName = req.params.language;
+const get = route.route("/:language?/register", (req, res) => {
+  /*************************************************************
+   *
+   * Init session and translation
+   *
+   *************************************************************/
+
+  const defaultSession = { username: [], password: [] };
+  if (!req.session.errors) req.session.errors = defaultSession;
+  const translate = req.load("auth/register", "register");
+  const langName = req.params.language || config.default_language;
 
   if (translate) {
-    res.render("auth/login", {
+    res.render("auth/register", {
       translate,
       langName,
       h: req.helper,
@@ -23,7 +31,15 @@ const get = route.route("/:language?/login", (req, res) => {
   }
 });
 
-const post = route.route("/:lanuage?/login", async (req, res) => {
+const post = route.route("/:language?/register", async (req, res) => {
+  /*************************************************************
+   *
+   * Init some variable
+   *
+   *************************************************************/
+
+  const { sequelize } = require("../../../service/database/models/");
+  const User = sequelize.models.user;
   const { username, password } = req.body;
   const langName = req.params.language || config.default_language;
 
@@ -53,33 +69,25 @@ const post = route.route("/:lanuage?/login", async (req, res) => {
 
   /*************************************************************
    *
-   * Authenticate user
+   * Create user if don't exist
    *
    *************************************************************/
 
-  const { sequelize } = require("../../../service/database/models/");
-  const User = sequelize.models.user;
-  const user = await User.findOne({
-    where: {
-      username,
-      password,
-    },
+  const [user, created] = await User.findOrCreate({
+    where: { username },
+    defaults: { username, password },
   });
 
-  if (user) {
-    req.session.user = {
-      username: user.dataValues.username,
-      id: user.dataValues.id,
-      createdAt: user.dataValues.createdAt,
-    };
-    res.redirect("/");
-  } else {
-    const code = "notExist";
-    const msgError = require("../../../langue/errors.js")[langName].ORM[code];
-    req.session.errors = { msgError };
-    req.session.old = { username, password };
+  if (created) {
     res.redirect(`/${langName}/login`);
+    return;
   }
+
+  const code = "alreadyExist";
+  const msgError = require("../../../langue/errors.js")[langName].ORM[code];
+  req.session.errors.username = [msgError];
+  console.log(req.session);
+  res.redirect(`/${langName}/register`);
 });
 
 module.exports = { get, post };

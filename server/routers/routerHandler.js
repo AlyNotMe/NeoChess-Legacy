@@ -1,17 +1,16 @@
-const Middleware = require("../middlewares/handler.js");
+const MiddlewareHandler = require("../middlewares/middlewareHandler.js");
 
-class Router {
+class RouterHandler {
   constructor() {
     this.app = app;
   }
 
   /**
-   *
-   * @param {String} route
-   * @param  {...middlewarePath} handler
+   * @param {string} routeName
+   * @param {...(string|string[])} middlewares
    */
 
-  route(route, ...handler) {
+  route(routeName, ...middlewares) {
     /*************************************************************
      *
      * router variable
@@ -23,19 +22,19 @@ class Router {
      * ----------------------------------------------------------
      *
      *************************************************************/
-    const router = require(`./routes/${route}.js`);
-    const instance = new Middleware();
+    const router = require(`./definitions/${routeName}.js`);
+    const middlewareInstance = new MiddlewareHandler();
 
-    for (const path of handler) {
-      instance.setMiddleware(path);
+    for (const middlewareName of middlewares.flat()) {
+      middlewareInstance.add(middlewareName);
     }
 
     for (const method in router) {
       const [path, handler] = router[method]();
-      const middlewares = instance.Middleware;
+      const middlewares = middlewareInstance.middleware;
       app[method](path, ...middlewares, handler);
     }
   }
 }
 
-module.exports = Router;
+module.exports = RouterHandler;

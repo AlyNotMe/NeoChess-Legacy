@@ -4,7 +4,7 @@
  *
  *************************************************************/
 
-const Route = require("../route.js");
+const Route = require("../routeRegistry.js");
 const route = new Route();
 
 const get = route.route("/", (req, res) => {

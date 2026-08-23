@@ -1,6 +1,6 @@
 // gameRouter.js
 
-const Route = require("../../route.js");
+const Route = require("../../routeRegistry.js");
 const route = new Route();
 const { Game, GameUser } = require("../../../service/database/models/");
 

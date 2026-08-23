@@ -1,4 +1,4 @@
-const Router = require("./router.js");
+const Router = require("./routerHandler.js");
 const router = new Router();
 
 router.route("home", ["auth"]);

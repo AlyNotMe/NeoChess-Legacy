@@ -57,8 +57,7 @@ const post = route.route("/:language?/login", async (req, res) => {
    *
    *************************************************************/
 
-  const { sequelize } = require("../../../service/database/models/");
-  const User = sequelize.models.user;
+  const { User } = require("../../../service/database/index.js");
   const user = await User.findOne({
     where: {
       username,

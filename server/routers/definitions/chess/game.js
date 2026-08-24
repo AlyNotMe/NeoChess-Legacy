@@ -5,7 +5,7 @@
  *************************************************************/
 
 const Route = require("../../routeRegistry.js");
-const { Game, GameUser } = require("../../../service/database/models/"); // Importe les modèles Game et GameUser
+const { Game, GameUser } = require("../../../service/database/index.js"); // Importe les modèles Game et GameUser
 
 const route = new Route();
 

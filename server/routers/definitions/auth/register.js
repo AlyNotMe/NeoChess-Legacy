@@ -38,8 +38,7 @@ const post = route.route("/:language?/register", async (req, res) => {
    *
    *************************************************************/
 
-  const { sequelize } = require("../../../service/database/models/");
-  const User = sequelize.models.user;
+  const { User } = require("../../../service/database/index.js");
   const { username, password } = req.body;
   const langName = req.params.language || config.default_language;
 

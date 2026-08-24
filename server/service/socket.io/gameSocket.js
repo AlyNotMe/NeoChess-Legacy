@@ -33,8 +33,7 @@ const gameSocket = (io) => {
       gameSocket.to(room).emit("game-start", !!state.started); // Envoie un signal pour indiquer que le jeu a commencé
 
       // Récupère les informations sur l'utilisateur à partir de la base de données
-      const { sequelize } = require("../database/models/");
-      const GameUser = sequelize.models.GameUser;
+      const { GameUser } = require("../database/index.js");
 
       const gameUser = await GameUser.findOrCreate({
         where: { idGame: game.id, idUser },

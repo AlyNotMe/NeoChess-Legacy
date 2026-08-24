@@ -2,7 +2,7 @@
 
 const Route = require("../../routeRegistry.js");
 const route = new Route();
-const { Game, GameUser } = require("../../../service/database/models/");
+const { Game, GameUser } = require("../../../service/database/index.js");
 
 const post = route.route("/:language?/game/create", async (req, res) => {
   try {

@@ -1,10 +1,9 @@
-class Queen {
-  constructor(color) {
-    this.piece = "queen";
-    this.color = color;
-  }
+const Piece = require("./piece.js");
 
-  move() {}
+class Queen extends Piece {
+  constructor(color, state) {
+    super("queen", color, state);
+  }
 }
 
 module.exports = Queen;

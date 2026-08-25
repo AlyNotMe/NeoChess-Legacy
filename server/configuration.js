@@ -1,68 +1,72 @@
-/*************************************************************
- *
- * Setup engine
- *
- *************************************************************/
+const config = require("./config.js");
 
-if (config.isAlreadyImplement) {
-  app.set("views", config.path_views);
-  app.set("view engine", config.engine_views);
-} else {
-  const engine = require(config.engine_views);
-  app.use(engine);
-  app.set("views", config.path_views);
-}
+module.exports = (app) => {
+  /*************************************************************
+   *
+   * Setup engine
+   *
+   *************************************************************/
 
-/*************************************************************
- *
- * Application Cross Origin Resources shared (cors)
- *
- *************************************************************/
+  if (config.isAlreadyImplement) {
+    app.set("views", config.path_views);
+    app.set("view engine", config.engine_views);
+  } else {
+    const engine = require(config.engine_views);
+    app.use(engine);
+    app.set("views", config.path_views);
+  }
 
-const cors = require("cors");
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET"],
-  })
-);
+  /*************************************************************
+   *
+   * Application Cross Origin Resources shared (cors)
+   *
+   *************************************************************/
 
-/*************************************************************
- *
- * Application Header
- *
- *************************************************************/
+  const cors = require("cors");
+  app.use(
+    cors({
+      origin: "*",
+      methods: ["GET"],
+    }),
+  );
 
-const helmet = require("helmet");
-const compression = require("compression");
-app.use(helmet());
-app.use(compression());
+  /*************************************************************
+   *
+   * Application Header
+   *
+   *************************************************************/
 
-/*************************************************************
- *
- * Application Express Configuration
- *
- *************************************************************/
+  const helmet = require("helmet");
+  const compression = require("compression");
+  app.use(helmet());
+  app.use(compression());
 
-const express = require("express");
-app.use(config.path_public_assets, express.static(config.dir_public_assets));
-app.use(express.urlencoded({ extended: true }));
+  /*************************************************************
+   *
+   * Application Express Configuration
+   *
+   *************************************************************/
 
-/*************************************************************
- *
- * Application Session Configuration
- *
- *************************************************************/
+  const express = require("express");
+  app.use(config.path_public_assets, express.static(config.dir_public_assets));
+  app.use(express.urlencoded({ extended: true }));
 
-const session = require("express-session");
-const sessionMiddleware = session({
-  name: config.SESSION_NAME,
-  secret: config.SESSION_SECRET,
-  saveUninitialized: false,
-  cookie: {
-    maxAge: 1 * 60 * 60 * 1000,
-  },
-});
-app.use(sessionMiddleware);
+  /*************************************************************
+   *
+   * Application Session Configuration
+   *
+   *************************************************************/
 
-module.exports = sessionMiddleware;
+  const session = require("express-session");
+  const sessionMiddleware = session({
+    name: config.SESSION_NAME,
+    secret: config.SESSION_SECRET,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1 * 60 * 60 * 1000,
+    },
+  });
+  app.use(sessionMiddleware);
+
+  return sessionMiddleware;
+};

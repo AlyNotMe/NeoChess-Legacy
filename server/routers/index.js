@@ -1,9 +1,12 @@
 const Router = require("./routerHandler.js");
-const router = new Router();
 
-router.route("home", ["auth"]);
-router.route("auth/register");
-router.route("auth/login");
+module.exports = (app) => {
+  const router = new Router(app);
 
-router.route("chess/create", ["auth"]);
-router.route("chess/game", ["auth"]);
+  router.route("home", ["auth"]);
+  router.route("auth/register");
+  router.route("auth/login");
+
+  router.route("chess/create", ["auth"]);
+  router.route("chess/game", ["auth"]);
+};

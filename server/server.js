@@ -5,8 +5,8 @@
  *************************************************************/
 
 const express = require("express");
-globalThis.Console = require("./console.js");
-globalThis.app = express();
+const Console = require("./console.js");
+const app = express();
 
 /*************************************************************
  *
@@ -15,10 +15,10 @@ globalThis.app = express();
  *************************************************************/
 
 // Load global configuration (environment variables, app name, port, etc.)
-globalThis.config = require("./config.js");
+const config = require("./config.js");
 
 // Apply Express configuration (views, CORS, compression, sessions, etc.)
-require("./configuration.js");
+const sessionMiddleware = require("./configuration.js")(app);
 
 /*************************************************************
  *
@@ -27,10 +27,10 @@ require("./configuration.js");
  *************************************************************/
 
 // Load global middlewares (error handlers, shared utilities, etc.)
-require("./middlewares/index.js");
+require("./middlewares/index.js")(app);
 
 // Load routes (authentication, home, etc.)
-require("./routers/index.js");
+require("./routers/index.js")(app);
 
 const https = require("https");
 const fs = require("fs");
@@ -58,4 +58,4 @@ const server = https
  *
  *************************************************************/
 const runner = require("./service/socket.io/server.js");
-runner(server);
+runner(server, sessionMiddleware);

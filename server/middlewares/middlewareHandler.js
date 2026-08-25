@@ -10,7 +10,6 @@
 class MiddlewareHandler {
   static globalMiddlewares = [];
   constructor() {
-    this.app = app;
     this.middleware = [];
   }
 
@@ -35,7 +34,7 @@ class MiddlewareHandler {
    * Register global Middleware
    *
    *************************************************************/
-  static run() {
+  static run(app) {
     for (const middleware of MiddlewareHandler.globalMiddlewares) {
       const [path, handler] = middleware();
       app.use(path, handler);

@@ -1,7 +1,7 @@
 const MiddlewareHandler = require("../middlewares/middlewareHandler.js");
 
 class RouterHandler {
-  constructor() {
+  constructor(app) {
     this.app = app;
   }
 
@@ -32,7 +32,7 @@ class RouterHandler {
     for (const method in router) {
       const [path, handler] = router[method]();
       const middlewares = middlewareInstance.middleware;
-      app[method](path, ...middlewares, handler);
+      this.app[method](path, ...middlewares, handler);
     }
   }
 }

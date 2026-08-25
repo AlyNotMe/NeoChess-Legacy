@@ -18,7 +18,7 @@ const get = route.route("/:language?/register", (req, res) => {
   const defaultSession = { username: [], password: [] };
   if (!req.session.errors) req.session.errors = defaultSession;
   const translate = req.load("auth/register", "register");
-  const langName = req.params.language || config.default_language;
+  const langName = req.params.language || req.config.default_language;
 
   if (translate) {
     res.render("auth/register", {
@@ -40,7 +40,7 @@ const post = route.route("/:language?/register", async (req, res) => {
 
   const { User } = require("../../../service/database/index.js");
   const { username, password } = req.body;
-  const langName = req.params.language || config.default_language;
+  const langName = req.params.language || req.config.default_language;
 
   /*************************************************************
    *

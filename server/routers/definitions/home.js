@@ -9,7 +9,7 @@ const route = new Route();
 
 const get = route.route("/", (req, res) => {
   const translate = req.load("home");
-  const langName = req.params.language || config.default_language;
+  const langName = req.params.language || req.config.default_language;
 
   if (translate) {
     res.render("home", { translate, langName, h: req.helper });

@@ -25,7 +25,7 @@ const get = route.route("/:language?/login", (req, res) => {
 
 const post = route.route("/:language?/login", async (req, res) => {
   const { username, password } = req.body;
-  const langName = req.params.language || config.default_language;
+  const langName = req.params.language || req.config.default_language;
 
   /*************************************************************
    *

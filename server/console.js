@@ -1,5 +1,6 @@
 const fs = require("fs");
 require("colors");
+const config = require("./config.js");
 
 function formatDate(date = new Date()) {
   const y = date.getFullYear();

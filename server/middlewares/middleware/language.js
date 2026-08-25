@@ -19,11 +19,11 @@ module.exports = new Middleware().middleware((req, res, next) => {
     if (language) {
       result = translate[language];
     } else {
-      result = translate[config.default_language];
+      result = translate[req.config.default_language];
     }
 
     if (!result) {
-      res.redirect(`/${config.default_language}/${redirectPath}`);
+      res.redirect(`/${req.config.default_language}/${redirectPath}`);
     }
 
     return result;

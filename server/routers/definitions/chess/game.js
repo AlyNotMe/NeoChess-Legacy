@@ -11,7 +11,7 @@ const route = new Route();
 
 const get = route.route("/:language?/game/:id", async (req, res) => {
   const translate = req.load("chess/game");
-  const langName = req.params.language || config.default_language;
+  const langName = req.params.language || req.config.default_language;
 
   const game = await Game.findByPk(req.params.id);
 

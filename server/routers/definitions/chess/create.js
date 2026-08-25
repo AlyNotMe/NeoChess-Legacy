@@ -6,7 +6,7 @@ const { Game, GameUser } = require("../../../service/database/index.js");
 
 const post = route.route("/:language?/game/create", async (req, res) => {
   try {
-    const langName = req.params.language || config.default_language;
+    const langName = req.params.language || req.config.default_language;
 
     // Création de la partie
     const game = await Game.create();

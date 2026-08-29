@@ -1,6 +1,6 @@
 const { Server } = require("socket.io");
 const Chessboard = require("../chess/gameState.js");
-const game = []; // Tableau pour stocker les instances de l'état du jeu
+const games = []; // Tableau pour stocker les instances de l'état du jeu
 
 /**
  * Fonction pour gérer la logique du jeu en utilisant les WebSockets
@@ -14,15 +14,15 @@ const gameSocket = (io) => {
     // Événement pour rejoindre une salle de jeu
     socket.on("join-room", async (room) => {
       // Vérifie si la salle de jeu existe déjà dans le tableau game
-      const alreadyExist = game.find((el) => el.id === room);
+      const alreadyExist = games.find((el) => el.id === room);
       if (!alreadyExist) {
         // Si la salle de jeu n'existe pas, crée une nouvelle instance d'état du jeu
         const board = new Chessboard(room);
-        game.push(board); // Ajoute l'instance d'état du jeu au tableau game
+        games.push(board); // Ajoute l'instance d'état du jeu au tableau game
       }
 
       // Récupère l'état du jeu correspondant à la salle de jeu
-      const state = game.find((el) => el.id === room);
+      const state = games.find((el) => el.id === room);
       socket.join(room); // Fait rejoindre le client à la salle de jeu
 
       // Vérifie le nombre de joueurs dans la salle de jeu
@@ -35,10 +35,11 @@ const gameSocket = (io) => {
       // Récupère les informations sur l'utilisateur à partir de la base de données
       const { GameUser } = require("../database/index.js");
 
+      const idUser = socket.request.session.user.id
       const gameUser = await GameUser.findOrCreate({
-        where: { idGame: game.id, idUser },
+        where: { idGame: state.id, idUser },
         defaults: {
-          idGame: game.id,
+          idGame: state.id,
           idUser,
           color: "black",
         },
@@ -46,8 +47,8 @@ const gameSocket = (io) => {
 
       // Prépare les données du jeu à envoyer au client
       const gameData = {
-        gameId: game.id,
-        user: req.session.user,
+        gameId: state.id,
+        user: socket.request.session.user,
         color: gameUser[0].dataValues.color,
         state,
       };
@@ -58,7 +59,7 @@ const gameSocket = (io) => {
     // Événement pour jouer un coup
     socket.on("playMove", (room, c, n) => {
       // Trouve l'état du jeu correspondant à la salle de jeu
-      const state = game.find((el) => el.id === room);
+      const state = games.find((el) => el.id === room);
       console.log(room, c, n);
       // Exécute le déplacement sur le plateau d'échecs et récupère le nouvel état du jeu
       const gameState = state.movePiece(c.x, c.y, n.x, n.y);

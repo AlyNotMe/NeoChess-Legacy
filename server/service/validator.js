@@ -21,12 +21,10 @@ class Validator {
   }
 
   /**
-   * Valide le champ en fonction des options spécifiées.
-   * @param {object} sessionErr - L'objet contenant les erreurs de la session.
-   * @param {string} langName - Le nom de la langue pour les messages d'erreur.
-   * @returns {boolean} - Retourne vrai si des erreurs sont trouvées, sinon faux.
+   * Valide le champ et retourne la liste des règles échouées.
+   * @returns {string[]} noms des règles invalides (tableau vide si le champ est valide).
    */
-  validate(sessionErr, langName) {
+  validate() {
     for (const property in this.options) {
       const value = this.options[property];
       if (!value) continue;
@@ -38,13 +36,7 @@ class Validator {
       }
     }
 
-    sessionErr.errors[this.type] = {};
-    for (const error of this.#errors) {
-      const msgError = require("../langue/errors.js")[langName].ORM[error];
-      sessionErr.errors[this.type][error] = msgError;
-    }
-
-    return this.#errors.length > 0;
+    return this.#errors;
   }
 }
 

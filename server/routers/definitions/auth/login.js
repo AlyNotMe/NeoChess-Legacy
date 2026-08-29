@@ -35,18 +35,28 @@ const post = route.route("/:language?/login", async (req, res) => {
 
   req.session.errors = {};
   req.session.old = { username, password };
-  const errorUsername = new validator(username, "username", {
+  const usernameErrors = new validator(username, "username", {
     isAlphanumeric: true,
     min: 3,
     max: 20,
-  }).validate(req.session, langName);
-  const errorPassword = new validator(password, "password", {
+  }).validate();
+  const passwordErrors = new validator(password, "password", {
     isAlphanumeric: true,
     min: 6,
     max: 40,
-  }).validate(req.session, langName);
-  const error = errorUsername || errorPassword;
-  if (error) {
+  }).validate();
+  const errorMessages = require("../../../langue/errors.js")[langName].ORM;
+  if (usernameErrors.length) {
+    req.session.errors.username = Object.fromEntries(
+      usernameErrors.map((rule) => [rule, errorMessages[rule]]),
+    );
+  }
+  if (passwordErrors.length) {
+    req.session.errors.password = Object.fromEntries(
+      passwordErrors.map((rule) => [rule, errorMessages[rule]]),
+    );
+  }
+  if (usernameErrors.length || passwordErrors.length) {
     res.redirect(`/${langName}/login`);
     return;
   }

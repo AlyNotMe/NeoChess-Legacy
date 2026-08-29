@@ -8,6 +8,19 @@ const Route = require("../../routeRegistry.js");
 const route = new Route();
 const validator = require("../../../service/validator.js");
 
+/**
+ * Builds the object stored in req.session.user on login.
+ * @param {import("sequelize").Model} user
+ */
+function buildSessionUser(user) {
+  return {
+    username: user.dataValues.username,
+    id: user.dataValues.id,
+    createdAt: user.dataValues.createdAt,
+  };
+}
+/** @typedef {ReturnType<typeof buildSessionUser>} SessionUser */
+
 const get = route.route("/:language?/login", (req, res) => {
   const translate = req.load("auth/login", "login");
   const langName = req.params.language;
@@ -71,11 +84,7 @@ const post = route.route("/:language?/login", async (req, res) => {
   const user = await authenticateUser(username, password);
 
   if (user) {
-    req.session.user = {
-      username: user.dataValues.username,
-      id: user.dataValues.id,
-      createdAt: user.dataValues.createdAt,
-    };
+    req.session.user = buildSessionUser(user);
     res.redirect("/");
   } else {
     const code = "notExist";

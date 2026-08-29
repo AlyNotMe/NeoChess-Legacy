@@ -38,7 +38,7 @@ const post = route.route("/:language?/register", async (req, res) => {
    *
    *************************************************************/
 
-  const { User } = require("../../../service/database/index.js");
+  const registerUser = require("../../../service/auth/registerUser.js");
   const { username, password } = req.body;
   const langName = req.params.language || req.config.default_language;
 
@@ -82,10 +82,7 @@ const post = route.route("/:language?/register", async (req, res) => {
    *
    *************************************************************/
 
-  const [user, created] = await User.findOrCreate({
-    where: { username },
-    defaults: { username, password },
-  });
+  const [user, created] = await registerUser(username, password);
 
   if (created) {
     res.redirect(`/${langName}/login`);

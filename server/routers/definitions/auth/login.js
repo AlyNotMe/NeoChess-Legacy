@@ -67,13 +67,8 @@ const post = route.route("/:language?/login", async (req, res) => {
    *
    *************************************************************/
 
-  const { User } = require("../../../service/database/index.js");
-  const user = await User.findOne({
-    where: {
-      username,
-      password,
-    },
-  });
+  const authenticateUser = require("../../../service/auth/authenticateUser.js");
+  const user = await authenticateUser(username, password);
 
   if (user) {
     req.session.user = {

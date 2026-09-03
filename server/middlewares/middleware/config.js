@@ -9,6 +9,7 @@
  *************************************************************/
 
 const Middleware = require("../middlewareRegistry.js");
+const config = require("../../config.js");
 
 module.exports = new Middleware().middleware((req, res, next) => {
   req.config = config;

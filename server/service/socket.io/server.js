@@ -15,7 +15,7 @@ const runner = (server, sessionMiddleware) => {
   /**
    * game socket
    */
-  gameSocket(io);
+  gameSocket(io, sessionMiddleware);
 
   matchmakingSocket(io, sessionMiddleware);
 };

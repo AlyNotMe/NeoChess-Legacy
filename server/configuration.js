@@ -61,6 +61,7 @@ module.exports = (app) => {
   const sessionMiddleware = session({
     name: config.SESSION_NAME,
     secret: config.SESSION_SECRET,
+    resave: false,
     saveUninitialized: false,
     cookie: {
       maxAge: 1 * 60 * 60 * 1000,

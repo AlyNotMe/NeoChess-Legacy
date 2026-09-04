@@ -18,7 +18,7 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: database_development
+      MYSQL_DATABASE: neochess_development
     ports:
       - "3306:3306"
     volumes:
@@ -28,6 +28,18 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: unless-stopped
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
 
 volumes:
   db_data:

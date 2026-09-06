@@ -1,0 +1,57 @@
+name: Test
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: neochess_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -uroot -proot"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20.20.2"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure environment
+        run: |
+          cp server/.env.example server/.env
+          cat > server/service/database/config/config.json <<'EOF'
+          {
+            "test": {
+              "username": "root",
+              "password": "root",
+              "database": "neochess_test",
+              "host": "127.0.0.1",
+              "dialect": "mysql"
+            }
+          }
+          EOF
+
+      - name: Run migrations
+        run: npx sequelize-cli db:migrate --env test
+
+      - name: Run tests
+        run: npm test

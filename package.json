@@ -4,7 +4,8 @@
   "description": "multiplayer chess game",
   "main": "server/server.js",
   "scripts": {
-    "server": "nodemon"
+    "server": "nodemon",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,9 @@
   },
   "devDependencies": {
     "@types/express-session": "^1.19.0",
-    "nodemon": "^3.1.14"
+    "jest": "^30.5.1",
+    "nodemon": "^3.1.14",
+    "socket.io-client": "^4.8.3",
+    "supertest": "^7.2.2"
   }
 }

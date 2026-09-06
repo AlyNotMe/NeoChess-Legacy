@@ -24,19 +24,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING,
       },
-      gamemode: {
-        type: DataTypes.INTEGER, 
-        allowNull: false, 
-        references: {
-            model: "gamemode",
-            key: "id",
-            onDelete: "CASCADE",
-            onUpdate: "CASCADE",
-        }
-      },
   }, {
     sequelize,
     modelName: 'gamemode',
+    tableName: 'gamemode',
+    timestamps: false,
   });
   return gamemode;
 };

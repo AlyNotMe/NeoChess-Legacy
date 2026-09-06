@@ -19,6 +19,16 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
+      gamemode: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+        references: {
+          model: "gamemode",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,
@@ -31,6 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "game",
+      tableName: "game",
     }
   );
   return game;

@@ -1,16 +1,17 @@
 /**
  * @typedef options
- * @property {boolean} isAlphanumeric
- * @property {number} min
- * @property {number} max
+ * @property {boolean} isAlphanumeric - Indique si le champ doit être alphanumérique.
+ * @property {number} min - La longueur minimale du champ.
+ * @property {number} max - La longueur maximale du champ.
  */
 
 class Validator {
   #errors;
   /**
-   *
-   * @param {string} field
-   * @param {options} options
+   * Initialise un nouveau validateur.
+   * @param {string} field - Le champ à valider.
+   * @param {string} type - Le type de validation.
+   * @param {options} options - Les options de validation.
    */
   constructor(field, type, options) {
     this.field = field;
@@ -19,7 +20,11 @@ class Validator {
     this.#errors = [];
   }
 
-  validate(sessionErr, langName) {
+  /**
+   * Valide le champ et retourne la liste des règles échouées.
+   * @returns {string[]} noms des règles invalides (tableau vide si le champ est valide).
+   */
+  validate() {
     for (const property in this.options) {
       const value = this.options[property];
       if (!value) continue;
@@ -31,13 +36,7 @@ class Validator {
       }
     }
 
-    sessionErr.errors[this.type] = {};
-    for (const error of this.#errors) {
-      const msgError = require("../langue/errors.js")[langName].ORM[error];
-      sessionErr.errors[this.type][error] = msgError;
-    }
-
-    return this.#errors.length > 0;
+    return this.#errors;
   }
 }
 
@@ -46,16 +45,30 @@ class Validate {
     this.field = field;
   }
 
+  /**
+   * Vérifie si le champ est alphanumérique.
+   * @returns {boolean} - Retourne vrai si le champ est alphanumérique, sinon faux.
+   */
   isAlphanumeric() {
     const valid = this.field.match(/[A-Za-z0-9]+|_+|-+/gm);
     return valid?.join("") === this.field;
   }
 
+  /**
+   * Vérifie si la longueur du champ est supérieure ou égale à la valeur spécifiée.
+   * @param {number} value - La valeur minimale attendue.
+   * @returns {boolean} - Retourne vrai si la longueur est suffisante, sinon faux.
+   */
   min(value) {
     const valid = this.field.length >= value;
     return valid;
   }
 
+  /**
+   * Vérifie si la longueur du champ est inférieure ou égale à la valeur spécifiée.
+   * @param {number} value - La valeur maximale attendue.
+   * @returns {boolean} - Retourne vrai si la longueur est acceptable, sinon faux.
+   */
   max(value) {
     const valid = this.field.length <= value;
     return valid;

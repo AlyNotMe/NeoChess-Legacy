@@ -1,3 +1,5 @@
+const config = require("./config.js");
+
 function asset(asset) {
   return `${config.path_public_assets}/${asset}`;
 }

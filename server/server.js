@@ -5,8 +5,8 @@
  *************************************************************/
 
 const express = require("express");
-globalThis.Console = require("./console.js");
-globalThis.app = express();
+const Console = require("./console.js");
+const app = express();
 
 /*************************************************************
  *
@@ -14,8 +14,11 @@ globalThis.app = express();
  *
  *************************************************************/
 
-globalThis.config = require("./config.js");
-require("./configuration.js");
+// Load global configuration (environment variables, app name, port, etc.)
+const config = require("./config.js");
+
+// Apply Express configuration (views, CORS, compression, sessions, etc.)
+const sessionMiddleware = require("./configuration.js")(app);
 
 /*************************************************************
  *
@@ -23,8 +26,11 @@ require("./configuration.js");
  *
  *************************************************************/
 
-require("./middlewares/global.js");
-require("./routers/routes.js");
+// Load global middlewares (error handlers, shared utilities, etc.)
+require("./middlewares/index.js")(app);
+
+// Load routes (authentication, home, etc.)
+require("./routers/index.js")(app);
 
 const https = require("https");
 const fs = require("fs");
@@ -34,12 +40,22 @@ const options = {
   cert: fs.readFileSync("ssl/cert.pem"),
 };
 
-https.createServer(options, app).listen(config.port, config.url, () => {
-  /*************************************************************
-   *
-   * Clear console
-   *
-   *************************************************************/
+const server = https
+  .createServer(options, app)
+  .listen(config.port, config.url, () => {
+    /*************************************************************
+     *
+     * Clear console
+     *
+     *************************************************************/
 
-  Console.load();
-});
+    Console.load();
+  });
+
+/*************************************************************
+ *
+ * Socket runner
+ *
+ *************************************************************/
+const runner = require("./service/socket.io/server.js");
+runner(server, sessionMiddleware);

@@ -8,10 +8,10 @@
  *
  *************************************************************/
 
-const Middleware = require("../middleware.js");
+const Middleware = require("../middlewareRegistry.js");
 
 module.exports = new Middleware().middleware((req, res, next) => {
-  function load(name) {
+  function load(name, redirectPath) {
     const translate = require(`../../langue/${name}.js`);
     const language = req.params.language;
     let result;
@@ -19,11 +19,11 @@ module.exports = new Middleware().middleware((req, res, next) => {
     if (language) {
       result = translate[language];
     } else {
-      result = translate[config.default_language];
+      result = translate[req.config.default_language];
     }
 
     if (!result) {
-      res.redirect(`/${config.default_language}/${name}`);
+      res.redirect(`/${req.config.default_language}/${redirectPath}`);
     }
 
     return result;

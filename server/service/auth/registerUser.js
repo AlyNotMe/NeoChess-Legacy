@@ -1,4 +1,5 @@
 const { User } = require("../database/index.js");
+const { hashPassword } = require("./password.js");
 
 /**
  * Crée un utilisateur s'il n'existe pas déjà.
@@ -7,7 +8,11 @@ const { User } = require("../database/index.js");
  * @returns {Promise<[import("sequelize").Model, boolean]>} [l'utilisateur, true s'il vient d'être créé]
  */
 async function registerUser(username, password) {
-  return User.findOrCreate({ where: { username }, defaults: { username, password } });
+  const hashedPassword = await hashPassword(password);
+  return User.findOrCreate({
+    where: { username },
+    defaults: { username, password: hashedPassword },
+  });
 }
 
 module.exports = registerUser;

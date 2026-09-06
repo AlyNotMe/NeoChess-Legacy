@@ -2,14 +2,15 @@
 
 const Route = require("../../routeRegistry.js");
 const route = new Route();
-const { Game, GameUser } = require("../../../service/database/index.js");
+const { Game, GameUser, Gamemode } = require("../../../service/database/index.js");
 
 const post = route.route("/:language?/game/create", async (req, res) => {
   try {
     const langName = req.params.language || req.config.default_language;
 
-    // Création de la partie
-    const game = await Game.create();
+    // Création de la partie — un seul mode de jeu existe pour l'instant
+    const chessMode = await Gamemode.findOne({ where: { libelle: "chess" } });
+    const game = await Game.create({ gamemode: chessMode.id });
 
     // Obtention des IDs des utilisateurs à partir du corps de la requête
     const { userIdWhite, userIdBlack } = req.body;

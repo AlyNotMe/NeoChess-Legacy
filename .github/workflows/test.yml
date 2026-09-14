@@ -53,5 +53,8 @@ jobs:
       - name: Run migrations
         run: npx sequelize-cli db:migrate --env test
 
+      - name: Seed default gamemode
+        run: npx sequelize-cli db:seed --seed 20260906084431-default-gamemode.js --env test
+
       - name: Run tests
         run: npm test

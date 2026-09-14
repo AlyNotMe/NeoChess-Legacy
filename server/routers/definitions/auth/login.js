@@ -17,13 +17,14 @@ function buildSessionUser(user) {
     username: user.dataValues.username,
     id: user.dataValues.id,
     createdAt: user.dataValues.createdAt,
+    xp: user.dataValues.xp,
   };
 }
 /** @typedef {ReturnType<typeof buildSessionUser>} SessionUser */
 
 const get = route.route("/:language?/login", (req, res) => {
   const translate = req.load("auth/login", "login");
-  const langName = req.params.language;
+  const langName = req.params.language || req.config.default_language;
 
   if (translate) {
     res.render("auth/login", {

@@ -1,28 +1,190 @@
 extends ./layouts/main.pug
 
 block styles
-    link(rel="stylesheet", href=h.asset("home.css"))
-    link(href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css", rel="stylesheet")
+    link(rel="stylesheet", href=h.asset("dashboard/dashboard.css"))
+
+mixin pieceIcon()
+    svg(fill="none" height="17.28" viewBox="0 0 16.26 17.28" width="16.26")
+        path(clip-rule="evenodd" fill-rule="evenodd" fill="currentColor" d="M1.76291 6.36705C1.76291 4.67841 2.43373 3.05892 3.62778 1.86487C4.82183 0.670813 6.44132 0 8.12997 0C9.81861 0 11.4381 0.670813 12.6322 1.86487C13.8262 3.05892 14.497 4.67841 14.497 6.36705V9.79071L16.1543 13.1052C16.2306 13.2578 16.2666 13.4273 16.2589 13.5977C16.2513 13.7681 16.2002 13.9337 16.1105 14.0788C16.0208 14.2239 15.8955 14.3436 15.7465 14.4267C15.5976 14.5097 15.4298 14.5533 15.2592 14.5533H11.6537C11.4514 15.3339 10.9955 16.0253 10.3578 16.5188C9.72 17.0123 8.9364 17.2801 8.12997 17.2801C7.32354 17.2801 6.53993 17.0123 5.90217 16.5188C5.2644 16.0253 4.80858 15.3339 4.60626 14.5533H1.00069C0.830119 14.5533 0.662378 14.5097 0.513394 14.4267C0.364409 14.3436 0.239129 14.2239 0.149451 14.0788C0.0597731 13.9337 0.0086753 13.7681 0.0010108 13.5977C-0.00665369 13.4273 0.0293696 13.2578 0.105659 13.1052L1.76291 9.79071V6.36705ZM6.55458 14.5533C6.71425 14.8298 6.94389 15.0594 7.22043 15.2191C7.49696 15.3787 7.81065 15.4628 8.12997 15.4628C8.44928 15.4628 8.76297 15.3787 9.03951 15.2191C9.31604 15.0594 9.54569 14.8298 9.70536 14.5533H6.55458ZM8.12997 1.81916C6.92379 1.81916 5.76701 2.29831 4.91412 3.15121C4.06122 4.0041 3.58207 5.16088 3.58207 6.36705V9.79071C3.58205 10.073 3.51635 10.3514 3.39015 10.6039L2.32594 12.7341H13.9349L12.8707 10.6039C12.7442 10.3514 12.6782 10.0731 12.6779 9.79071V6.36705C12.6779 5.16088 12.1987 4.0041 11.3458 3.15121C10.4929 2.29831 9.33614 1.81916 8.12997 1.81916Z")
+
 block script
-    script(type="module", src="/socket.io/socket.io.js")
-    script(type="module", src=h.asset("services/socket.io/home.js")) 
+    script(defer src="/vendor/chart.js/chart.umd.js")
+    script(type="module" src=h.asset("dashboard/eloChart.js"))
 
 block body
-    header
-        nav.secondary.flex.items-center.justify-between.py-4.px-6.bg-gray-800
-            a(href="/").logo.nav-el.flex.items-center
-                img(src=h.asset("icons/pawn_white_with_heart.webp"), alt="logo", class="w-14 h-14 mr-2")
-                h1.h-nav.text-white.text-2xl NeoChess
-            ul.flex.items-center
-                li.mx-4
-                    button(type="button" id="play" class="btn flex items-center space-x-2 text-white")
-                        img(src=h.asset("icons/queen_white.webp"), alt="queen_white", class="w-20 h-20")
-                        p.text-nav #{translate.play} 
-                li.mx-4
-                    button(type="button" class="btn flex items-center space-x-2 text-white")
-                        img(src=h.asset("icons/social.webp"), alt="social", class="w-20 h-20")
-                        p.text-nav #{translate.social}
-                li.mx-4
-                    button(type="button" class="btn flex items-center space-x-2 text-white")
-                        img(src=h.asset("icons/lang.webp"), alt="lang", class="w-20 h-20")  
-                        p.text-nav #{translate.langue}
+    -
+        function getLevel(globalXp) {
+            let level = 1
+            let remainingXp = globalXp
+
+            while (remainingXp >= 100 * Math.pow(level, 1.2)) {
+            remainingXp -= 100 * Math.pow(level, 1.2)
+            level++
+            }
+
+            return {
+            level: level,
+            xp: Math.floor(remainingXp),
+            xpRequired: Math.floor(100 * Math.pow(level, 1.2))
+            }
+        }
+
+        function formatMonthLabel(date) {
+            return new Intl.DateTimeFormat("fr-FR", { month: "short" }).format(new Date(date))
+        }
+        function formatDayMonth(date) {
+            return new Intl.DateTimeFormat("fr-FR", { day: "2-digit", month: "short" }).format(new Date(date))
+        }
+        function formatSigned(n) {
+            return (n > 0 ? "+" : "") + n
+        }
+
+    - const { level, xp, xpRequired } = getLevel(user.xp)
+    - const xpPercent = (xp / xpRequired) * 100
+
+    .dashboard-root
+        //- ══ Sidebar ══════════════════════════════════════════════
+        aside.sidebar
+            .sidebar-logo-row
+                .sidebar-logo-box
+                    img.sidebar-logo-img(alt="NeoChess logo" src=h.asset("icons/logo-king.png"))
+                .sidebar-logo-name
+                    .sidebar-logo-name-neo Neo
+                    .sidebar-logo-name-chess Chess
+                .sidebar-bell
+                    +pieceIcon()
+
+            .sidebar-divider
+
+            .sidebar-user
+                .sidebar-user-row
+                    span.sidebar-user-name #{user.username}
+                    span.sidebar-user-level
+                        | #{translate.level} 
+                        strong #{level}
+                .xp-track
+                    .xp-fill(style=`width:${xpPercent}%`)
+                .xp-label #{xp} / #{xpRequired} XP
+
+            .sidebar-divider--soft
+
+            //- Nav — seul "Jouer" mène quelque part pour l'instant, le reste
+            //- attend les features correspondantes (entraînement, stats, tournois, communauté)
+            nav.sidebar-nav
+                a.nav-item.is-active(href="/game/create")
+                    img.nav-item-icon(src=h.asset("icons/pawn_white_with_heart.webp") alt="")
+                    span.nav-item-label #{translate.play}
+                    .nav-item-dot
+
+            a.play-cta(href="/game/create")
+                .play-cta-inner
+                    .play-cta-icon-box
+                        img.play-cta-icon-img(src=h.asset("icons/pawn_white_with_heart.webp") alt=translate.play)
+                    span.play-cta-label #{translate.play}
+                .play-cta-overlay
+
+        //- ══ Main ═════════════════════════════════════════════════
+        main.dashboard-main
+            .dashboard-header
+                h1.dashboard-title.gradient-title
+                    | #{translate.welcome}, #{user.username}
+                .dashboard-subrow
+                    p.dashboard-sub
+                        | #{translate.readyQuestion}
+                        if eloDeltaMonth !== 0
+                            |  Votre ELO a #{eloDeltaMonth > 0 ? translate.eloProgressed : translate.eloDeclined} de
+                            span.accent #{" " + formatSigned(eloDeltaMonth) + " pts"}
+                            |  #{translate.eloMonthSuffix}
+                    .level-badge 🏅 #{translate.level} #{level}
+
+            .dashboard-grid
+                //- Carte : Dernière partie
+                .card.card--game
+                    .card-head
+                        span.card-head-label #{translate.lastGame}
+                        span.card-head-meta #{translate.chess}
+                    .game-user-row
+                        span.game-user-name #{user.username}
+                        span.game-user-elo ELO #{currentElo}
+                    .game-board-wrap(aria-label=translate.boardAlt role="img")
+                        .game-board
+                            each row, y in lastGameBoard
+                                each cell, x in row
+                                    .board-square(class=(x + y) % 2 === 0 ? "light" : "dark")
+                                        if cell
+                                            img.board-piece(alt=`${cell.color} ${cell.piece}` src=h.asset(`chess/theme/default/${cell.piece}_${cell.color}.png`))
+                        .game-board-overlay-warm
+                        .game-board-overlay-fade
+                        if lastGame
+                            .game-board-footer
+                                .game-vs-badge ♟ #{translate.vs} #{lastGame.opponent}
+                                .game-result-badge #{translate[lastGame.result]} #{formatSigned(lastGame.eloChange)}
+                        else
+                            .game-board-footer
+                                .game-vs-badge #{translate.noGamesPlayed}
+                    .recent-games
+                        each game, index in recentGames
+                            .recent-game-row(class=index < recentGames.length - 1 ? "has-border" : "")
+                                div
+                                    span.recent-game-opponent #{game.opponent}
+                                    span.recent-game-time #{formatDayMonth(game.createdAt)}
+                                div(style="display:flex;align-items:center;gap:8px")
+                                    span.recent-game-elo(class=game.result) #{formatSigned(game.eloChange)}
+                                    span.recent-game-result #{translate[game.result]}
+
+                //- Carte : Classement ELO
+                .card.card--padded
+                    .elo-head-row
+                        span.card-head-label #{translate.eloRanking}
+                        span.card-head-meta #{translate.lastMonths}
+                    - const me = leaderboard.find(p => p.isMe)
+                    .elo-big-row
+                        span.elo-big-number #{currentElo.toLocaleString("fr-FR")}
+                        .elo-delta-wrap
+                            if eloDeltaMonth !== 0
+                                .elo-delta-badge #{(eloDeltaMonth > 0 ? "↑" : "↓") + " " + formatSigned(eloDeltaMonth) + " " + translate.thisMonth}
+                            if topPercent
+                                .elo-rank-note #{translate.top} #{topPercent}% #{translate.worldwide}
+                    .elo-chart-wrap
+                        canvas#eloChart(data-elo-history=JSON.stringify(eloHistory))
+                    .elo-stats
+                        .elo-stat
+                            .elo-stat-value #{me ? me.games : 0}
+                            .elo-stat-label #{translate.games}
+                        .elo-stat
+                            .elo-stat-value.accent #{me ? me.winRate : 0} %
+                            .elo-stat-label #{translate.wins}
+                        .elo-stat
+                            .elo-stat-value.accent #{Math.max(...eloHistory.map(p => p.elo), currentElo).toLocaleString("fr-FR")}
+                            .elo-stat-label #{translate.best}
+
+                //- Carte : Classement global
+                .card.card--padded
+                    .leaderboard-head
+                        span.card-head-label #{translate.globalRanking}
+                        span.leaderboard-filter #{translate.thisMonth} ▾
+                    .leaderboard-list
+                        each player in leaderboard
+                            - const isTop3 = player.rank <= 3
+                            - const medal = ["🥇", "🥈", "🥉"][player.rank - 1]
+                            .leaderboard-row(class=player.isMe ? "is-me" : "")
+                                .leaderboard-rank
+                                    if isTop3
+                                        | #{medal}
+                                    else
+                                        span.leaderboard-rank-number #{"#" + player.rank}
+                                - const avatarBg = player.isMe ? "linear-gradient(135deg, var(--color-purple), var(--color-purple-light))" : isTop3 ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.07)"
+                                - const avatarColor = isTop3 ? (player.rank === 1 ? "#e8b455" : player.rank === 2 ? "#c0c0c0" : "#c88b4a") : "rgba(255,255,255,0.6)"
+                                .leaderboard-avatar(style=`background:${avatarBg};color:${avatarColor}`) #{player.name[0]}
+                                .leaderboard-name-wrap
+                                    div(style=`font-weight:${player.isMe ? 500 : 300};color:${player.isMe ? "#fff" : "rgba(255,255,255,0.72)"}`)
+                                        span.leaderboard-name #{player.name}
+                                        if player.isMe
+                                            span.leaderboard-you-tag #{translate.you}
+                                    .leaderboard-meta #{player.games} #{translate.games.toLowerCase()} · #{player.winRate}% #{translate.wins.toLowerCase()}
+                                - const eloColor = isTop3 ? (player.rank === 1 ? "#e8b455" : player.rank === 2 ? "#c0c0c0" : "#c88b4a") : player.isMe ? "var(--color-purple-light)" : "rgba(255,255,255,0.45)"
+                                .leaderboard-elo(style=`color:${eloColor};font-weight:${isTop3 ? 600 : 400}`) #{player.elo.toLocaleString("fr-FR")}
+                    .leaderboard-footer
+                        button.leaderboard-footer-btn #{translate.viewFullRanking} →
+
+        .ambient-glow

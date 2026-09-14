@@ -1,32 +1,32 @@
+// Ambient floating bubbles behind the auth cards, ported from the
+// Figma source's <Bubbles /> React component (random size/position/
+// timing, alternating purple/amber) into plain DOM — this project has
+// no client bundler, so it stays a small vanilla script like before.
 const body = document.body;
-const bubbleHtml = document.createElement("div");
-bubbleHtml.id = "bubblesDiv";
+const bubblesDiv = document.createElement("div");
+bubblesDiv.id = "bubblesDiv";
+body.appendChild(bubblesDiv);
 
-const max = 33;
+const BUBBLE_COUNT = 28;
 
-function load() {
-  const r = Math.random() * max * 1000;
-  const div = document.createElement("div");
-  const dot = document.createElement("span");
-  dot.classList.add("dot");
-
-  div.appendChild(dot);
-
-  setTimeout(() => {
-    const x = Math.random() * 90;
-    const y = Math.random() * 30 + 60;
-    div.style.left = `${x}%`;
-    div.style.top = `${y}%`;
-    bubbleHtml.appendChild(div);
-
-    setTimeout(() => {
-      div.remove();
-      load();
-    }, 9 * 1000);
-  }, r);
+function randomBetween(min, max) {
+  return Math.random() * (max - min) + min;
 }
 
-body.appendChild(bubbleHtml);
-for (let i = 0; i < 99; i++) {
-  load();
+for (let i = 0; i < BUBBLE_COUNT; i++) {
+  const el = document.createElement("div");
+  const dot = document.createElement("span");
+  dot.classList.add("dot");
+  el.appendChild(dot);
+
+  const size = randomBetween(28, 72);
+  el.classList.add(Math.random() > 0.35 ? "purple" : "amber");
+  el.style.left = `${randomBetween(2, 95)}%`;
+  el.style.top = `${randomBetween(55, 95)}%`;
+  el.style.width = `${size}px`;
+  el.style.height = `${size}px`;
+  el.style.animationDuration = `${randomBetween(8, 16)}s`;
+  el.style.animationDelay = `${randomBetween(0, 12)}s`;
+
+  bubblesDiv.appendChild(el);
 }

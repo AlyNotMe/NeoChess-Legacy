@@ -1,28 +1,41 @@
 extends ../layouts/main.pug
 
-block styles 
-  link(rel="stylesheet" href=h.asset("bubble/bubbles.css"))
-  link(rel="stylesheet", href=h.asset("auth/register.css"))
-block script 
-  script(type="module", src=h.asset("bubble/bubbles.js")) 
+block styles
+    link(rel="stylesheet" href=h.asset("bubble/bubbles.css"))
+    link(rel="stylesheet" href=h.asset("auth/auth.css"))
+block script
+    script(type="module" src=h.asset("bubble/bubbles.js"))
 
-block body 
-  form(action="/" + langName + "/register" method="post")
-    .wrapper
-      img#logo(src=h.asset("icons/pawn_white_with_heart.webp"), alt="logo")
-      h1 #{translate.welcome}
-      p #{translate.register}
-    .wrapper 
-      .container 
-        label(for="username") #{translate.username}
-        input#username(value=h.old(old, "username") placeholder=translate.username type="text" name="username" required minlength="3" maxlength="20")
-        if errors.username 
-          each error in errors.username
-            strong.errors #{error}
-      .container 
-        label(for="password") #{translate.password}
-        input#password(value=h.old(old, "password") placeholder=translate.password type="password" name="password" required minlength="6" maxlength="40") 
-        if errors.password
-          each error in errors.password
-            strong.errors #{error}
-      button(type="submit") #{translate.submit}
+block body
+    .auth-card.auth-card--register
+        .auth-logo-row
+            .auth-logo-box
+                img.auth-logo-img(src=h.asset("icons/logo-king.png") alt="NeoChess")
+            span.auth-logo-name NeoChess
+
+        h1.auth-heading #{translate.heading}
+        p.auth-sub #{translate.subheading}
+
+        form.auth-form(action="/" + langName + "/register" method="post")
+            div
+                label.auth-field-label(for="username") #{translate.pseudoLabel}
+                input.auth-field-input#username(value=h.old(old, "username") placeholder=translate.username type="text" name="username" required minlength="3" maxlength="20")
+                if errors.username
+                    each error in errors.username
+                        strong.auth-field-error #{error}
+
+            div
+                label.auth-field-label(for="password") #{translate.passwordLabel}
+                input.auth-field-input#password(value=h.old(old, "password") placeholder=translate.password type="password" name="password" required minlength="6" maxlength="40")
+                if errors.password
+                    each error in errors.password
+                        strong.auth-field-error #{error}
+
+            button.auth-submit(type="submit") #{translate.submit}
+
+        p.auth-switch
+            | #{translate.alreadyAccount}
+            |
+            a.auth-switch-link(href="/" + langName + "/login") #{translate.loginLink}
+
+    span.auth-watermark.auth-watermark--register ♛

@@ -7,5 +7,11 @@ module.exports = {
     register:
       "inscrivez-vous pour créer votre premier compte et commencer à jouer aux échecs dans NeoChess",
     submit: "Créer votre compte",
+    pseudoLabel: "Pseudo",
+    passwordLabel: "Mot de passe",
+    heading: "Créer un compte",
+    subheading: "Rejoignez la communauté NeoChess.",
+    alreadyAccount: "Déjà un compte ?",
+    loginLink: "Se connecter",
   },
 };

@@ -38,7 +38,16 @@ module.exports = (app) => {
 
   const helmet = require("helmet");
   const compression = require("compression");
-  app.use(helmet());
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+          "form-action": ["'self'"],
+        },
+      },
+    }),
+  );
   app.use(compression());
 
   /*************************************************************

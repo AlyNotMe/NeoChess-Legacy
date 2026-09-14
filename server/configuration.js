@@ -57,7 +57,9 @@ module.exports = (app) => {
    *************************************************************/
 
   const express = require("express");
+  const path = require("path");
   app.use(config.path_public_assets, express.static(config.dir_public_assets));
+  app.use("/vendor/chart.js", express.static(path.dirname(require.resolve("chart.js"))));
   app.use(express.urlencoded({ extended: true }));
 
   /*************************************************************

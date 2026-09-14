@@ -55,6 +55,36 @@ class Chessboard {
     }
     return false; // Le déplacement est invalide ou aucune pièce n'est présente sur la case de départ
   }
+
+  /**
+   * Moves a piece without going through its legality checks, for
+   * replaying a move history that already happened for real (e.g.
+   * rebuilding a finished game's position from stored moves) rather
+   * than validating a live move.
+   */
+  applyMoveUnchecked(fromX, fromY, toX, toY) {
+    this.board[toY][toX] = this.board[fromY][fromX];
+    this.board[fromY][fromX] = null;
+  }
+
+  /**
+   * Plain, serializable snapshot of the board — {piece, color} per
+   * square instead of Piece instances — for rendering (views, JSON)
+   * without leaking the Piece classes to callers.
+   */
+  toGrid() {
+    return this.board.map((row) =>
+      row.map((piece) => (piece ? { piece: piece.piece, color: piece.color } : null)),
+    );
+  }
+
+  /** @param {string} square e.g. "e4" */
+  static squareToXY(square) {
+    return {
+      x: square.charCodeAt(0) - "a".charCodeAt(0),
+      y: 8 - parseInt(square[1], 10),
+    };
+  }
 }
 
 module.exports = Chessboard;
